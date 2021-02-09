@@ -9,7 +9,6 @@ void main() {
   runApp(MyApp());
 }
 
-
 class MyApp extends StatelessWidget {
 
   @override
@@ -23,4 +22,3 @@ class MyApp extends StatelessWidget {
     ) ,);
   }
 }
-
