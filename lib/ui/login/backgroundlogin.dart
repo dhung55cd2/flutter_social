@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_social/screen/screen_utils.dart';
+import 'package:flutter_social/ui/creataccout/create_account.dart';
 import 'package:flutter_social/utils/colors.dart';
 
 class BackgroundLogin extends StatelessWidget {
@@ -10,27 +11,34 @@ class BackgroundLogin extends StatelessWidget {
       child: ListView(
         children: [
           SizedBox(height: myHeight(64)),
-          _buildAppBar(size),
+          _buildAppBar(size,context),
           SizedBox(height: myHeight(40),),
           _buildWidgetWelcomBack(),
           SizedBox(height: myHeight(20),),
           _buildWidgetImage(size),
           SizedBox(height: myHeight(175),),
-          _buildSignUpNow(),
+          _buildSignUpNow(context),
         ],
 
       ),
     );
   }
-  Widget _buildSignUpNow(){
+  Widget _buildSignUpNow(BuildContext context){
     return Container(
       height: myHeight(36),width: myWidth(295),alignment: Alignment.center,
-      child: Text('Dont\’ have an account yet\?\nSIGN UP NOW', textAlign: TextAlign.center,),
+      child: TextButton(onPressed: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context) => CreateAccount()));
+      },
+          child: Text('Dont\’ have an account yet\?\nSIGN UP NOW', textAlign: TextAlign.center,)),
     );
   }
-  Widget _buildAppBar(Size size){
+  Widget _buildAppBar(Size size, BuildContext context){
     return Container(height: myHeight(14),width:size.width,padding: EdgeInsets.only(left: myWidth(20)),alignment: Alignment.centerLeft,
-        child: Container(height: myHeight(14),width: myWidth(20),child: Image.asset('assets/icons/back_arrow.png')));
+        child: Container(
+            height: myHeight(14),width: myWidth(20),child: InkWell(onTap: (){
+              Navigator.of(context).pop();
+        }
+        ,child: Image.asset('assets/icons/back_arrow.png'))));
 
   }
   Widget _buildWidgetImage(Size size) {

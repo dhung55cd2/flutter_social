@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_social/screen/screen_utils.dart';
+import 'file:///C:/Users/dvhnu/AndroidStudioProjects/flutter_social/lib/ui/login/login_page.dart';
 import 'package:flutter_social/utils/colors.dart';
 
 class SocialPage extends StatelessWidget {
@@ -16,34 +17,41 @@ class SocialPage extends StatelessWidget {
             SizedBox(height: myHeight(46),),
             Text("Social",style: TextStyle(color: textColor,fontSize: mySize(40), fontWeight: FontWeight.normal),),
             SizedBox(height: myHeight(6),),
-            Text("Cool tagline goes here",style: TextStyle(color: subtextColor,fontSize: mySize(15), fontWeight: FontWeight.normal),),
+            Text("Cool tasgline goes here",style: TextStyle(color: subtextColor,fontSize: mySize(15), fontWeight: FontWeight.normal),),
             SizedBox(height: myHeight(155),),
             _buildButtonConnectFacebook(icon: 'assets/icons/social-facebook.png', title: 'CONNECT WITH FACEBOOK',color: color_connect_facebook),
             SizedBox(height: myHeight(30),),
             _buildButtonConnecEmail(icon: 'assets/icons/icon_email.png', title: 'SIGN UP USING EMAIL',color: color_blue),
             SizedBox(height: myHeight(75),),
-            _buildLogin()
+            _buildLogin(context)
           ],
         ),
       ),
     );
   }
-  Widget _buildLogin(){
+  Widget _buildLogin(BuildContext context){
     return Container(
-      height: myHeight(36),width: myWidth(295),alignment: Alignment.center,
-      child: RichText(
-        textAlign: TextAlign.center,
-        text: TextSpan(
-          children: [
-           TextSpan( text: 'I already have an account.\n',style: TextStyle(color: textColor,fontSize: mySize(12)),),
-            TextSpan( text: 'LOGIN NOW',style: TextStyle(color: textColor,fontSize: mySize(12)),),
-          ]
+        height: myHeight(36),width: myWidth(295),alignment: Alignment.center,
+        child: InkWell(
+          onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+          },
+          child: RichText(
+            textAlign: TextAlign.center,
+            text: TextSpan(
+              children: [
+               TextSpan( text: 'I already have an account.\n',style: TextStyle(color: textColor,fontSize: mySize(12)),),
+                TextSpan( text: 'LOGIN NOW',style: TextStyle(color: textColor,fontSize: mySize(12)),),
+              ]
+            ),
+          ),
         ),
-      ),
+
     );
   }
   Widget _buildButtonConnectFacebook({String icon, String title, Color color}) {
-    return MaterialButton(onPressed: (){},
+    return MaterialButton(onPressed: (){
+    },
           child: Container(height: myHeight(55),width: myWidth(295),
           decoration: BoxDecoration(color: color,borderRadius: BorderRadius.circular(myRadius(10)),),
           child: Row(children: [

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_social/ui/home_page.dart';
-import 'package:flutter_social/ui/login_page.dart';
+import 'file:///C:/Users/dvhnu/AndroidStudioProjects/flutter_social/lib/ui/login/login_page.dart';
 import 'package:flutter_social/ui/social_page.dart';
 
 void main() {
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
     child: MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(canvasColor: Colors.white),
-      home: LoginPage(),
+      home: SocialPage(),
     ) ,);
   }
 }

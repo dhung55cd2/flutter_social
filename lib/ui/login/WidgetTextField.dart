@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_social/screen/screen_utils.dart';
 import 'package:flutter_social/utils/colors.dart';
+import 'package:flutter_social/widgets/textfield_email.dart';
+import 'package:flutter_social/widgets/textfield_password.dart';
 
-class CustomTextField extends StatelessWidget {
+class TextFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -44,39 +46,13 @@ class CustomTextField extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(height: myHeight(23),),
-          _buildTextFieldEmail(),
+          TextFieldSimple(height: 68,width: 295,hintText: "Enter email address",labelText:"Email or Username",),
           SizedBox(height: myHeight(23),),
-          Container(height: myHeight(68),width: myWidth(295),decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.grey[200]))),
-            child: TextField(
-              decoration: InputDecoration(
-                  border: InputBorder.none,
-                  hintText: "Enter password",
-                  hintStyle: TextStyle(color: Colors.grey[400],fontSize: mySize(20)),
-                  labelText: "Password",
-                  labelStyle: TextStyle(color: textColor, fontSize: mySize(14)),
-                  suffixIcon: TextButton(child: Text("FORGOT?",style: TextStyle(color: color_blue,fontSize: mySize(11)),),)
-              ),
-            ),
-          ),
+          TextFieldSuffixIcon(height: 68,width: 295,hintText: "Enter password",labelText:"Password",titleIcon: "FORGOT?",)
 
         ],
       ),
     );
-  }
-
-  Widget _buildTextFieldEmail() {
-    return Container(height: myHeight(68),width: myWidth(295),decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.grey[200]))),
-          child: TextField(
-            decoration: InputDecoration(
-              border: InputBorder.none,
-              hintText: "Enter email address",
-              hintStyle: TextStyle(color: Colors.grey[400],fontSize: mySize(20)),
-              labelText: "Email or Username",
-              labelStyle: TextStyle(color: textColor, fontSize: mySize(14)),
-            ),
-            textInputAction: TextInputAction.none,
-          ),
-        );
   }
   Widget _buildButtonLogin(){
     return Container(
