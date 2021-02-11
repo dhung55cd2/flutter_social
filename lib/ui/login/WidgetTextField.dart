@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_social/screen/screen_utils.dart';
+import 'package:flutter_social/ui/personal_page.dart';
 import 'package:flutter_social/utils/colors.dart';
 import 'package:flutter_social/widgets/textfield_email.dart';
 import 'package:flutter_social/widgets/textfield_password.dart';
@@ -23,7 +24,7 @@ class TextFieldWidget extends StatelessWidget {
                   children: [
                     _buildWidgetLogin(),
                     Positioned(bottom: myHeight(0),left: myWidth(20),right: myWidth(20),
-                        child: _buildButtonLogin())
+                        child: _buildButtonLogin(context))
                   ],
 
                 ),
@@ -54,10 +55,13 @@ class TextFieldWidget extends StatelessWidget {
       ),
     );
   }
-  Widget _buildButtonLogin(){
+  Widget _buildButtonLogin(BuildContext context){
     return Container(
       height: myHeight(55),width: myWidth(295),decoration: BoxDecoration(color: color_blue,borderRadius: BorderRadius.circular(myRadius(10))),
-      child: MaterialButton(child: Text("LOGIN",style: TextStyle(color: Colors.white, fontSize: mySize(12)),),),
+      child: MaterialButton(onPressed: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context) => PersonalPage()));
+      },
+      child: Text("LOGIN",style: TextStyle(color: Colors.white, fontSize: mySize(12)),),),
     );
   }
 }

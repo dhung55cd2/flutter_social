@@ -21,7 +21,7 @@ class _CreateAccountState extends State<CreateAccount> {
                 children: [
                   Background(title: "Creat account",subtitle: "Please enter your credentials in the form bellow:",
                   widget: null,),
-                  Positioned(bottom: myHeight(20),left: myWidth(20),right: myWidth(20),
+                  Positioned(top: myHeight(235),left: myWidth(20),right: myWidth(20),
                       child: TextFieldCreatAccount())
 
                 ],

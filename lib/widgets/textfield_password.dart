@@ -30,7 +30,7 @@ class _TextFieldSuffixIconState extends State<TextFieldSuffixIcon> {
             hintStyle: TextStyle(color: Colors.grey[400],fontSize: mySize(20)),
             labelText: widget.labelText,
             labelStyle: TextStyle(color: textColor, fontSize: mySize(14)),
-            suffixIcon: TextButton(
+            suffixIcon: widget.titleIcon == "" ? null :TextButton(
               onPressed: (){
               },
               child: Text(widget.titleIcon,style: TextStyle(fontSize: mySize(11),color: color_blue),),

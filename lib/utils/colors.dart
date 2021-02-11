@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 const textColor = Color(0xff203152);
 const subtextColor = Color(0xff758CB7);
+const color_editprofile = Color(0xff33466A);
 const color_pink = Color(0xffFA607D);
 const colorDivider = Color(0xffE6E6E6);
 const color_blue = Color(0xff596DFF);

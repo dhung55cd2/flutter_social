@@ -11,12 +11,13 @@ class TextFieldCreatAccount extends StatelessWidget {
     double hightUnHideSizeBox;
     return  KeyboardVisibilityBuilder(
         builder: (context, isKeyboardVisible){
-          isKeyboardVisible ? hightUnHideSizeBox= 0 : hightUnHideSizeBox=100;
+          isKeyboardVisible ? hightUnHideSizeBox= 0 : hightUnHideSizeBox=45;
           return  Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                SizedBox(height: myHeight(hightUnHideSizeBox),),
                 Container(height: myHeight(460),width: myWidth(335),
                   child: Stack(
                     children: [
@@ -27,7 +28,7 @@ class TextFieldCreatAccount extends StatelessWidget {
 
                   ),
                 ),
-                SizedBox(height: myHeight(hightUnHideSizeBox),)
+
               ],
 
             ),
@@ -49,9 +50,9 @@ class TextFieldCreatAccount extends StatelessWidget {
           SizedBox(height: myHeight(23),),
           TextFieldSimple(height: 68,width: 295,hintText: "Enter your email address",labelText:"Email",),
           SizedBox(height: myHeight(23),),
-          TextFieldSimple(height: 68,width: 295,hintText: "Choose a password",labelText:"Password",),
+          TextFieldSuffixIcon(height: 68,width: 295,hintText: "Choose a password",labelText:"Password",titleIcon: "",),
           SizedBox(height: myHeight(23),),
-          TextFieldSimple(height: 68,width: 295,hintText: "Repeat a password",labelText:"Password",),
+          TextFieldSuffixIcon(height: 68,width: 295,hintText: "Repeat a password",labelText:"Password",titleIcon: "",),
 
 
         ],
