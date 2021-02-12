@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_social/screen/screen_utils.dart';
 import 'package:flutter_social/ui/creataccout/create_account.dart';
 import 'package:flutter_social/utils/colors.dart';
+import 'package:flutter_social/widgets/icon_avatar.dart';
 
 class BackgroundLogin extends StatelessWidget {
   @override
@@ -34,11 +35,8 @@ class BackgroundLogin extends StatelessWidget {
   }
   Widget _buildAppBar(Size size, BuildContext context){
     return Container(height: myHeight(14),width:size.width,padding: EdgeInsets.only(left: myWidth(20)),alignment: Alignment.centerLeft,
-        child: Container(
-            height: myHeight(14),width: myWidth(20),child: InkWell(onTap: (){
-              Navigator.of(context).pop();
-        }
-        ,child: Image.asset('assets/icons/back_arrow.png'))));
+        child: IconBack()
+    );
 
   }
   Widget _buildWidgetImage(Size size) {

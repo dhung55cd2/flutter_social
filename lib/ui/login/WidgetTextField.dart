@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
+import 'package:flutter_social/objects/CustomButton.dart';
 import 'package:flutter_social/screen/screen_utils.dart';
 import 'package:flutter_social/ui/personal_page.dart';
 import 'package:flutter_social/utils/colors.dart';
@@ -56,12 +57,19 @@ class TextFieldWidget extends StatelessWidget {
     );
   }
   Widget _buildButtonLogin(BuildContext context){
-    return Container(
-      height: myHeight(55),width: myWidth(295),decoration: BoxDecoration(color: color_blue,borderRadius: BorderRadius.circular(myRadius(10))),
-      child: MaterialButton(onPressed: (){
+    return MaterialButton(padding: EdgeInsets.symmetric(horizontal: myWidth(0),vertical: myHeight(0)),
+      onPressed: (){
         Navigator.push(context, MaterialPageRoute(builder: (context) => PersonalPage()));
       },
-      child: Text("LOGIN",style: TextStyle(color: Colors.white, fontSize: mySize(12)),),),
+      child: CustomButon(height: 55,width: 295,radius: 10,background: color_blue,nameButton: "LOGIN",
+            textColor: Colors.white,textSize: 12,),
     );
+    //   Container(
+    //   height: myHeight(55),width: myWidth(295),decoration: BoxDecoration(color: color_blue,borderRadius: BorderRadius.circular(myRadius(10))),
+    //   child: MaterialButton(onPressed: (){
+    //     Navigator.push(context, MaterialPageRoute(builder: (context) => PersonalPage()));
+    //   },
+    //   child: Text("LOGIN",style: TextStyle(color: Colors.white, fontSize: mySize(12)),),),
+    // );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
+import 'package:flutter_social/objects/CustomButton.dart';
 import 'package:flutter_social/screen/screen_utils.dart';
 import 'package:flutter_social/utils/colors.dart';
 import 'package:flutter_social/widgets/textfield_email.dart';
@@ -60,9 +61,10 @@ class TextFieldCreatAccount extends StatelessWidget {
     );
   }
   Widget _buildButtonLogin(){
-    return Container(
-      height: myHeight(55),width: myWidth(295),decoration: BoxDecoration(color: color_blue,borderRadius: BorderRadius.circular(myRadius(10))),
-      child: MaterialButton(child: Text("LOGIN",style: TextStyle(color: Colors.white, fontSize: mySize(12)),),),
-    );
+    return CustomButon(height: 55,width: 295,radius: 10,nameButton: "LOGIN",textColor: Colors.white,textSize: 12,);
+    //   Container(
+    //   height: myHeight(55),width: myWidth(295),decoration: BoxDecoration(color: color_blue,borderRadius: BorderRadius.circular(myRadius(10))),
+    //   child: MaterialButton(child: Text("LOGIN",style: TextStyle(color: Colors.white, fontSize: mySize(12)),),),
+    // );
   }
 }
