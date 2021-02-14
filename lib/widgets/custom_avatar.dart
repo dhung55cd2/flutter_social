@@ -16,10 +16,10 @@ class CustomAvatar extends StatelessWidget {
         BoxShadow(offset: Offset(1,1), blurRadius: myRadius(10),color: Colors.grey[400])
       ]),
       child: CircleAvatar(
-        radius: myRadius(outsideradius),
+        radius: myHeight(outsideradius),
         backgroundColor: Colors.white,
         child: CircleAvatar(
-          radius: myRadius(insideradius),
+          radius: myHeight(insideradius),
           backgroundImage: AssetImage(images)
         ),
       ),

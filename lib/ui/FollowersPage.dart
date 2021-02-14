@@ -3,6 +3,7 @@ import 'package:flutter_social/objects/CustomButton.dart';
 import 'package:flutter_social/objects/item_user.dart';
 import 'package:flutter_social/screen/screen_utils.dart';
 import 'package:flutter_social/utils/colors.dart';
+import 'package:flutter_social/widgets/button_search.dart';
 import 'package:flutter_social/widgets/custom_avatar.dart';
 import 'package:flutter_social/widgets/icon_avatar.dart';
 import 'package:flutter_social/widgets/info_friend.dart';
@@ -17,7 +18,7 @@ class FollowersPage extends StatelessWidget {
         child: Column(
           children: [
             _buildAppBar(size),
-            _buildSearch(),
+            ButtonSearch(),
             SizedBox(height: myHeight(20),),
             _buildBodyPage()
           ],
@@ -51,7 +52,7 @@ class FollowersPage extends StatelessWidget {
           post: followers.posts,
           followers: followers.followers,
         ),
-        followers.isFollow ? CustomButon(height: 30,width: 80,radius: 4,nameButton: "Following",background: Colors.white,textColor: textColor,textSize: 12,)
+        followers.isFollow ? CustomButon(height: 31,width: 81,radius: 4,nameButton: "Following",background: Colors.white,textColor: textColor,textSize: 12,)
             :CustomButon(height: 30,width: 80,radius: 4,nameButton: "Follow",background: color_blue,textColor: Colors.white,textSize: 12,)
       ],
     ),);

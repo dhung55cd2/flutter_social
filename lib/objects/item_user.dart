@@ -18,3 +18,13 @@ class Followers {
 
 
 }
+class UserChat{
+  final String avatar;
+  final String name;
+  final String messenger;
+  final double time;
+  final bool isOnline;
+  final int Unread;
+
+  UserChat(this.avatar, this.name, this.messenger, this.time, this.isOnline, this.Unread);
+}

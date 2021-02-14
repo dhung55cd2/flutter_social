@@ -2,10 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_social/objects/item_images.dart';
 import 'package:flutter_social/screen/screen_utils.dart';
+import 'package:flutter_social/ui/FollowersPage.dart';
+import 'package:flutter_social/ui/create_post.dart';
 import 'package:flutter_social/ui/follow_page.dart';
 import 'package:flutter_social/ui/login/login_page.dart';
 import 'package:flutter_social/utils/colors.dart';
 import 'package:flutter_social/utils/gridview_images.dart';
+import 'package:flutter_social/widgets/customInfoStatistic.dart';
 import 'package:flutter_social/widgets/custom_avatar.dart';
 import 'package:flutter_social/widgets/infor_statistics.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -34,12 +37,39 @@ class _PersonalPageState extends State<PersonalPage> {
               ),
             ),
             SizedBox(height: myHeight(30),),
-            InforStatistics(posts: 250,followers: 353,following: 1500,),
+           _buildRowInfoStatistics(context),
             ImagesGridView(listImages: listImages,)
             
           ],
         ),
      ),
+    );
+  }
+  Widget _buildRowInfoStatistics(BuildContext context){
+    return Container(  height: myHeight(72), width: myWidth(335),
+      padding: EdgeInsets.symmetric(horizontal: myWidth(30)),
+      decoration: BoxDecoration(color: Colors.white, boxShadow: [
+        BoxShadow(
+            offset: Offset(7, 7),
+            blurRadius: myRadius(20),
+            color: Colors.grey[200]),
+        BoxShadow(
+            offset: Offset(-1, -1),
+            blurRadius: myRadius(1),
+            color: Colors.grey[200])
+      ]),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          CustomInfoStatistic(number: 250,title: "Posts",onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => CreatPost()));
+          },),
+          CustomInfoStatistic(number: 353,title: "Followers",onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => FollowersPage()));
+          },),
+          CustomInfoStatistic(number: 1500,title: "Following",onPressed: (){},),
+        ],
+      ),
     );
   }
   Widget _buildInforUser(BuildContext context,String name, String address){

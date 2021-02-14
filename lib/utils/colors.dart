@@ -7,4 +7,4 @@ const color_pink = Color(0xffFA607D);
 const colorDivider = Color(0xffE6E6E6);
 const color_blue = Color(0xff596DFF);
 const color_connect_facebook = Color(0xff3364B7);
-
+const color_icon_online = Color(0xff22E43D);

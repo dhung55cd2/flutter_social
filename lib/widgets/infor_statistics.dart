@@ -7,6 +7,7 @@ class InforStatistics extends StatefulWidget {
   final int posts;
   final int followers;
   final int following;
+
   const InforStatistics(
       {Key key, this.posts, this.followers, this.following})
       : super(key: key);
