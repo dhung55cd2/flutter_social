@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_social/objects/CustomButton.dart';
+import 'file:///C:/Users/dvhnu/AndroidStudioProjects/flutter_social/lib/widgets/CustomButton.dart';
 import 'package:flutter_social/objects/item_user.dart';
 import 'package:flutter_social/screen/screen_utils.dart';
 import 'file:///C:/Users/dvhnu/AndroidStudioProjects/flutter_social/lib/ui/friend/follow_page.dart';
@@ -28,7 +28,7 @@ class FollowersPage extends StatelessWidget {
       ),
     );
   }
-  Widget _buildBodyPage(BuildContext context, List<Followers> list){
+  Widget _buildBodyPage(BuildContext context, List<Users> list){
     return Expanded(child:
         SingleChildScrollView(
           child: Column(
@@ -39,8 +39,8 @@ class FollowersPage extends StatelessWidget {
         )
     );
   }
-  Widget _buildItemBodyPage(List<Followers> listFollowers,int index, BuildContext context){
-    Followers followers = listFollowers[index];
+  Widget _buildItemBodyPage(List<Users> listFollowers,int index, BuildContext context){
+    Users followers = listFollowers[index];
     return Container(height: myHeight(80),width: myWidth(335),margin: EdgeInsets.only(bottom: myHeight(20)),
     decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.grey[100],width: myHeight(2))) ),
     child: MaterialButton(
@@ -96,8 +96,8 @@ class FollowersPage extends StatelessWidget {
       ),
     );
   }
-  List<Followers> listFollowers = [
-    Followers(
+  List<Users> listFollowers = [
+    Users(
         avatar: 'assets/followers/iniesta/iniesta1.jpg',
         name:  'Andrés Iniesta',
         address: 'Spain',
@@ -107,7 +107,7 @@ class FollowersPage extends StatelessWidget {
       'assets/followers/iniesta/iniesta3.jpg', 'assets/followers/iniesta/iniesta4.jpg',
       'assets/followers/iniesta/iniesta5.jpg']
     ),
-    Followers(
+    Users(
         avatar: 'assets/followers/khangan/khangan1.jpg',
         name:  'Khả Ngân',
         address: 'Sài Gòn',
@@ -117,7 +117,7 @@ class FollowersPage extends StatelessWidget {
       'assets/followers/khangan/khangan3.jpg', 'assets/followers/khangan/khangan4.jpg',
       'assets/followers/khangan/khangan5.jpg']
     ),
-    Followers(
+    Users(
         avatar: 'assets/followers/ronaldinho/ronaldinho1.jpg',
         name:  'Ronaldinho',
         address: 'Brazil',
@@ -127,7 +127,7 @@ class FollowersPage extends StatelessWidget {
       'assets/followers/ronaldinho/ronaldinho3.jpg', 'assets/followers/ronaldinho/ronaldinho4.jpg',
       'assets/followers/ronaldinho/ronaldinho5.jpg']
     ),
-    Followers(
+    Users(
         avatar: 'assets/followers/khanhvan/khanhvan1.jpg',
         name:  'Đỗ Khánh Vân',
         address: 'Buôn Ma Thuật',
@@ -137,7 +137,7 @@ class FollowersPage extends StatelessWidget {
       'assets/followers/khanhvan/khanhvan3.jpg', 'assets/followers/khanhvan/khanhvan4.jpg',
       'assets/followers/khanhvan/khanhvan5.jpg']
     ),
-    Followers(
+    Users(
         avatar: 'assets/followers/ronaldo/ronaldo1.jpg',
         name:  'Ronaldo Cr7',
         address: 'Portugal',
@@ -147,7 +147,7 @@ class FollowersPage extends StatelessWidget {
       'assets/followers/ronaldo/ronaldo3.jpg', 'assets/followers/ronaldo/ronaldo4.jpg',
       'assets/followers/ronaldo/ronaldo5.jpg']
     ),
-    Followers(
+    Users(
         avatar: 'assets/followers/nhunggumiho/nhunggumiho1.jpg',
         name:  'Nhung Gumiho',
         address: 'Quảng Nam',
@@ -157,7 +157,7 @@ class FollowersPage extends StatelessWidget {
       'assets/followers/nhunggumiho/nhunggumiho3.jpg', 'assets/followers/nhunggumiho/nhunggumiho4.jpg',
       'assets/followers/nhunggumiho/nhunggumiho5.jpg']
     ),
-    Followers(
+    Users(
         avatar: 'assets/followers/messi/messi1.jpg',
         name:  'Messi',
         address: 'Argentina',
@@ -167,7 +167,7 @@ class FollowersPage extends StatelessWidget {
       'assets/followers/messi/messi3.jpg ','assets/followers/messi/messi4.jpg',
       'assets/followers/messi/messi5.jpg']
     ),
-    Followers(
+    Users(
         avatar: 'assets/followers/phuongthao/vuphuongthao1.jpg',
         name:  'Vũ Phương Thảo',
         address: 'Hà Nội',

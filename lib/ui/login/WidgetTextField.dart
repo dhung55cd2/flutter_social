@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_social/objects/CustomButton.dart';
+import 'file:///C:/Users/dvhnu/AndroidStudioProjects/flutter_social/lib/widgets/CustomButton.dart';
 import 'package:flutter_social/screen/screen_utils.dart';
-import 'package:flutter_social/ui/friend/follow_page.dart';
 import 'package:flutter_social/ui/mypage/personal_page.dart';
 import 'package:flutter_social/utils/colors.dart';
+import 'package:flutter_social/widgets/bottom_error.dart';
 import 'package:flutter_social/widgets/custom_textfield.dart';
 
 class TextFieldWidget extends StatefulWidget {
@@ -75,20 +75,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
           Navigator.push(context, MaterialPageRoute(builder: (context) => PersonalPage()));
         } else {
           showBottomSheet(context: context, builder: (context) {
-            return InkWell(
-              onTap: (){
-                Navigator.of(context).pop();
-              },
-              child: Container(height: myHeight(100),width: size.width,color: Colors.teal[50],alignment: Alignment.center,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  !emailValid ? Text("Email chưa hợp lệ", style: TextStyle(color: Colors.black,fontSize: mySize(16)),) : SizedBox(),
-                  SizedBox(height: myHeight(10),),
-                  !passValid ? Text("Password chưa hợp lệ",style: TextStyle(color: Colors.black,fontSize: mySize(16)),) : SizedBox()
-                ],
-              ),),
-            );
+            return BottomErrorLogin(emailValid: emailValid, passValid: passValid);
           });
         }
 
@@ -99,3 +86,5 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
 
   }
 }
+
+

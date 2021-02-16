@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_social/objects/CustomButton.dart';
+import 'file:///C:/Users/dvhnu/AndroidStudioProjects/flutter_social/lib/widgets/CustomButton.dart';
 import 'package:flutter_social/screen/screen_utils.dart';
 import 'package:flutter_social/utils/colors.dart';
 

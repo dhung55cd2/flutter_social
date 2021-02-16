@@ -11,7 +11,7 @@ import 'package:flutter_social/widgets/custom_avatar.dart';
 import 'package:flutter_social/widgets/icon_avatar.dart';
 
 class Messenger extends StatefulWidget {
-  final Followers userChat;
+  final Users userChat;
 
   const Messenger({Key key, this.userChat}) : super(key: key);
   @override
@@ -70,7 +70,7 @@ class _MessengerState extends State<Messenger> {
     return Container(height: myHeight(20),width: myWidth(20),
     child: Image.asset(image,color: color_blue,),);
   }
-  Widget _buildBodyPage(Size size, Followers userChat){
+  Widget _buildBodyPage(Size size, Users userChat){
     return Expanded(
       child: ListView.builder(padding: EdgeInsets.symmetric(vertical: myHeight(20),horizontal: myWidth(20)),itemCount: listMessanger.length,
           itemBuilder: (context, index) {
@@ -78,7 +78,7 @@ class _MessengerState extends State<Messenger> {
       }),
     );
   }
-  Widget _youMessenger(Size size, int index, Followers userChat){
+  Widget _youMessenger(Size size, int index, Users userChat){
     return Container(
       width: size.width - myWidth(40),
       child: Row(
@@ -111,7 +111,7 @@ class _MessengerState extends State<Messenger> {
     ],
   );
   }
-  Widget _buildTitlePage(Followers userChat) {
+  Widget _buildTitlePage(Users userChat) {
     return Container(
       height: myHeight(61),width: myWidth(335),alignment: Alignment.centerLeft,
       decoration: BoxDecoration(color: Colors.white,boxShadow: [
@@ -134,7 +134,7 @@ class _MessengerState extends State<Messenger> {
       )
     );
   }
-  Widget _buildAppBar(Size size, Followers userChat){
+  Widget _buildAppBar(Size size, Users userChat){
     return Container(width: size.width,height: myHeight(113),
     child: Stack(
       children: [

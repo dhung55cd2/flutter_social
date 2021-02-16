@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_social/objects/CustomButton.dart';
+import 'file:///C:/Users/dvhnu/AndroidStudioProjects/flutter_social/lib/widgets/CustomButton.dart';
 import 'package:flutter_social/objects/item_user.dart';
 import 'package:flutter_social/screen/screen_utils.dart';
 import 'package:flutter_social/utils/colors.dart';
 import 'package:flutter_social/widgets/icon_avatar.dart';
 
 class VideoCall extends StatelessWidget {
-  final Followers userChat;
+  final Users userChat;
 
   const VideoCall({Key key, this.userChat}) : super(key: key);
   @override
@@ -60,7 +60,7 @@ class VideoCall extends StatelessWidget {
       ],
     ),);
   }
-  Widget _background(Followers userChat){
+  Widget _background(Users userChat){
     return Container(
       decoration: BoxDecoration(image: DecorationImage(image: AssetImage(userChat.avatar),fit: BoxFit.cover)),
     );

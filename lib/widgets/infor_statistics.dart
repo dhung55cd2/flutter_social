@@ -5,7 +5,7 @@ import 'package:flutter_social/ui/friend/FollowersPage.dart';
 import 'package:flutter_social/utils/colors.dart';
 
 class InforStatistics extends StatefulWidget {
-  final Followers follower;
+  final Users follower;
 
 
   const InforStatistics(

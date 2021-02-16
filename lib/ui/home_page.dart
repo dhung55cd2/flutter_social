@@ -3,7 +3,7 @@ import 'dart:ffi';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_social/objects/item_user.dart';
-import 'package:flutter_social/objects/widgets.dart';
+import 'file:///C:/Users/dvhnu/AndroidStudioProjects/flutter_social/lib/widgets/widgets.dart';
 import 'package:flutter_social/screen/screen_utils.dart';
 import 'package:flutter_social/ui/social_page.dart';
 import 'package:flutter_social/utils/colors.dart';
@@ -455,10 +455,10 @@ Widget _buildUserReply(){
 
 
   ];
-  List<User> listUserTimeLine = [
-    User(avatar: "assets/images/avatar_friend.png",name:"Andrew Clarkson",time: 2, image:'assets/images/imagepost.png' ),
-    User(avatar: "assets/images/avatar_friend_girl.png",name:"Amanda Roberts",time: 3, image:'assets/images/image_girl.png' ),
-    User(avatar: "assets/images/avatar_friend.png",name:"Andrew Clarkson",time: 2, image:'assets/images/imagepost.png' ),
-    User(avatar: "assets/images/avatar_friend_girl.png",name:"Amanda Roberts",time: 5, image:'assets/images/imagepost.png' ),
+  List<People> listUserTimeLine = [
+    People(avatar: "assets/images/avatar_friend.png",name:"Andrew Clarkson",time: 2, image:'assets/images/imagepost.png' ),
+    People(avatar: "assets/images/avatar_friend_girl.png",name:"Amanda Roberts",time: 3, image:'assets/images/image_girl.png' ),
+    People(avatar: "assets/images/avatar_friend.png",name:"Andrew Clarkson",time: 2, image:'assets/images/imagepost.png' ),
+    People(avatar: "assets/images/avatar_friend_girl.png",name:"Amanda Roberts",time: 5, image:'assets/images/imagepost.png' ),
   ];
 }

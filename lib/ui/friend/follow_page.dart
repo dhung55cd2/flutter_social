@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_social/objects/CustomButton.dart';
+import 'file:///C:/Users/dvhnu/AndroidStudioProjects/flutter_social/lib/widgets/CustomButton.dart';
 import 'package:flutter_social/objects/item_images.dart';
 import 'package:flutter_social/objects/item_user.dart';
 import 'package:flutter_social/screen/screen_utils.dart';
@@ -14,7 +14,7 @@ import 'package:flutter_social/widgets/info_friend.dart';
 import 'package:flutter_social/widgets/infor_statistics.dart';
 
 class FollowPage extends StatefulWidget {
-  final Followers followers;
+  final Users followers;
 
   const FollowPage({Key key, this.followers}) : super(key: key);
   @override
@@ -42,7 +42,7 @@ class _FollowPageState extends State<FollowPage> {
       ),
     );
   }
-  Widget _buildRowInfoStatistics(BuildContext context, Followers followers){
+  Widget _buildRowInfoStatistics(BuildContext context, Users followers){
     return Container(  height: myHeight(72), width: myWidth(335),
       padding: EdgeInsets.symmetric(horizontal: myWidth(30)),
       decoration: BoxDecoration(color: Colors.white, boxShadow: [
@@ -70,7 +70,7 @@ class _FollowPageState extends State<FollowPage> {
     );
   }
 
-  Widget _buildInfor(Size size, Followers followers){
+  Widget _buildInfor(Size size, Users followers){
     return Container(height: myHeight(268),width: size.width,
       child: Stack(
         children: [

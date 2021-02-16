@@ -30,7 +30,7 @@ class _PageChatsState extends State<PageChats> {
       ),),
     );
   }
-  Widget _buildBodyPage(List<Followers> list){
+  Widget _buildBodyPage(List<Users> list){
     return Expanded(
         child: SingleChildScrollView(
           child: Column(
@@ -40,8 +40,8 @@ class _PageChatsState extends State<PageChats> {
     ),
         ));
   }
-  Widget _buildItemListView(List<Followers> list, int index){
-    Followers userChat = list[index];
+  Widget _buildItemListView(List<Users> list, int index){
+    Users userChat = list[index];
     return MaterialButton( padding: EdgeInsets.all(0),
       onPressed: (){
       Navigator.push(context, MaterialPageRoute(builder: (context) =>Messenger(userChat: userChat,)));
@@ -71,7 +71,7 @@ class _PageChatsState extends State<PageChats> {
     );
   }
 
-  Widget _buildUnRead(Followers userChat) {
+  Widget _buildUnRead(Users userChat) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -83,7 +83,7 @@ class _PageChatsState extends State<PageChats> {
         );
   }
 
-  Widget _buildInfoItem(Followers userChat) {
+  Widget _buildInfoItem(Users userChat) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(userChat.name, style: TextStyle(color: textColor, fontSize: mySize(14)),),
@@ -92,7 +92,7 @@ class _PageChatsState extends State<PageChats> {
         );
   }
 
-  Widget _buildAvatarItem(Followers userChat) {
+  Widget _buildAvatarItem(Users userChat) {
     return Container(height: myHeight(40),width: myWidth(40),
           child: Stack(
             children: [
@@ -123,8 +123,8 @@ class _PageChatsState extends State<PageChats> {
       ),
     );
   }
-  List<Followers> listFollowers = [
-    Followers(
+  List<Users> listFollowers = [
+    Users(
         avatar: 'assets/followers/iniesta/iniesta1.jpg',
         name:  'Andrés Iniesta',
         address: 'Spain',
@@ -134,7 +134,7 @@ class _PageChatsState extends State<PageChats> {
       'assets/followers/iniesta/iniesta3.jpg', 'assets/followers/iniesta/iniesta4.jpg',
       'assets/followers/iniesta/iniesta5.jpg']
     ),
-    Followers(
+    Users(
         avatar: 'assets/followers/khangan/khangan1.jpg',
         name:  'Khả Ngân',
         address: 'Sài Gòn',
@@ -144,7 +144,7 @@ class _PageChatsState extends State<PageChats> {
       'assets/followers/khangan/khangan3.jpg', 'assets/followers/khangan/khangan4.jpg',
       'assets/followers/khangan/khangan5.jpg']
     ),
-    Followers(
+    Users(
         avatar: 'assets/followers/ronaldinho/ronaldinho1.jpg',
         name:  'Ronaldinho',
         address: 'Brazil',
@@ -154,7 +154,7 @@ class _PageChatsState extends State<PageChats> {
       'assets/followers/ronaldinho/ronaldinho3.jpg', 'assets/followers/ronaldinho/ronaldinho4.jpg',
       'assets/followers/ronaldinho/ronaldinho5.jpg']
     ),
-    Followers(
+    Users(
         avatar: 'assets/followers/khanhvan/khanhvan1.jpg',
         name:  'Đỗ Khánh Vân',
         address: 'Buôn Ma Thuật',
@@ -164,7 +164,7 @@ class _PageChatsState extends State<PageChats> {
       'assets/followers/khanhvan/khanhvan3.jpg', 'assets/followers/khanhvan/khanhvan4.jpg',
       'assets/followers/khanhvan/khanhvan5.jpg']
     ),
-    Followers(
+    Users(
         avatar: 'assets/followers/ronaldo/ronaldo1.jpg',
         name:  'Ronaldo Cr7',
         address: 'Portugal',
@@ -174,7 +174,7 @@ class _PageChatsState extends State<PageChats> {
       'assets/followers/ronaldo/ronaldo3.jpg', 'assets/followers/ronaldo/ronaldo4.jpg',
       'assets/followers/ronaldo/ronaldo5.jpg']
     ),
-    Followers(
+    Users(
         avatar: 'assets/followers/nhunggumiho/nhunggumiho1.jpg',
         name:  'Nhung Gumiho',
         address: 'Quảng Nam',
@@ -184,7 +184,7 @@ class _PageChatsState extends State<PageChats> {
       'assets/followers/nhunggumiho/nhunggumiho3.jpg', 'assets/followers/nhunggumiho/nhunggumiho4.jpg',
       'assets/followers/nhunggumiho/nhunggumiho5.jpg']
     ),
-    Followers(
+    Users(
         avatar: 'assets/followers/messi/messi1.jpg',
         name:  'Messi',
         address: 'Argentina',
@@ -194,7 +194,7 @@ class _PageChatsState extends State<PageChats> {
       'assets/followers/messi/messi3.jpg ','assets/followers/messi/messi4.jpg',
       'assets/followers/messi/messi5.jpg']
     ),
-    Followers(
+    Users(
         avatar: 'assets/followers/phuongthao/vuphuongthao1.jpg',
         name:  'Vũ Phương Thảo',
         address: 'Hà Nội',

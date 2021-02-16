@@ -5,7 +5,7 @@ import 'package:flutter_social/utils/colors.dart';
 import 'package:flutter_social/widgets/custom_avatar.dart';
 
 class AvatarItem extends StatelessWidget {
-   final Followers userChat;
+   final Users userChat;
 
   const AvatarItem({Key key, this.userChat}) : super(key: key);
   @override

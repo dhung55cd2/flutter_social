@@ -1,10 +1,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
-import 'package:flutter_social/objects/CustomButton.dart';
+import 'file:///C:/Users/dvhnu/AndroidStudioProjects/flutter_social/lib/widgets/CustomButton.dart';
 import 'package:flutter_social/screen/screen_utils.dart';
 import 'package:flutter_social/ui/login/login_page.dart';
+import 'package:flutter_social/ui/social_page.dart';
 import 'package:flutter_social/utils/colors.dart';
+import 'package:flutter_social/widgets/bottom_error.dart';
 import 'package:flutter_social/widgets/custom_textfield.dart';
 class TextFieldCreatAccount extends StatelessWidget {
   final TextEditingController controllerName;
@@ -60,28 +62,10 @@ class TextFieldCreatAccount extends StatelessWidget {
         controllerPass.text.length > 6  ? isPass = true : isPass = false;
         controllerRepeatPass.text.length > 6 && controllerRepeatPass.text == controllerPass.text ? isRepeatPass = true : isRepeatPass = false;
         if(isName && isEmail && isPass & isRepeatPass) {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => SocialPage()));
         } else {
           showBottomSheet(context: context, builder: (context) {
-            return InkWell(
-              onTap: (){
-                Navigator.of(context).pop();
-              },
-              child: Container(height: myHeight(120),width: size.width,color: Colors.teal[50],alignment: Alignment.center,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                   isName ? const SizedBox() : Text("Họ tên chưa hợp lệ", style: TextStyle(color: Colors.black,fontSize: mySize(16)),),
-                    SizedBox(height: myHeight(5),),
-                    isEmail ? const SizedBox() : Text("Email chưa hợp lệ", style: TextStyle(color: Colors.black,fontSize: mySize(16)),),
-                    SizedBox(height: myHeight(5),),
-                    isPass ? const SizedBox() : Text("Mật khẩu chưa hợp lệ", style: TextStyle(color: Colors.black,fontSize: mySize(16)),),
-                    SizedBox(height: myHeight(5),),
-                    isRepeatPass ? const SizedBox() : Text("Nhập lại mật khẩu chưa chính xác", style: TextStyle(color: Colors.black,fontSize: mySize(16)),),
-                    SizedBox(height: myHeight(5),),
-                  ],
-                ),),
-            );
+            return BottomErrorCreatAccount(isName: isName, isEmail: isEmail, isPass: isPass, isRepeatPass: isRepeatPass,height: 120,);
           });
         }
 
@@ -91,3 +75,5 @@ class TextFieldCreatAccount extends StatelessWidget {
 
   }
 }
+
+

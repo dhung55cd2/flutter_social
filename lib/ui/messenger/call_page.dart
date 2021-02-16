@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_social/objects/CustomButton.dart';
+import 'file:///C:/Users/dvhnu/AndroidStudioProjects/flutter_social/lib/widgets/CustomButton.dart';
 import 'package:flutter_social/objects/item_user.dart';
 import 'package:flutter_social/screen/screen_utils.dart';
 import 'package:flutter_social/ui/messenger/messenger.dart';
@@ -9,7 +9,7 @@ import 'package:flutter_social/widgets/build_custom_icon.dart';
 import 'package:flutter_social/widgets/icon_avatar.dart';
 
 class CallPage extends StatefulWidget {
-  final Followers userChat;
+  final Users userChat;
 
   const CallPage({Key key, this.userChat}) : super(key: key);
   @override
@@ -47,7 +47,7 @@ class _CallPageState extends State<CallPage> {
       ),
     );
   }
-  Widget inFoYou(Followers userChat){
+  Widget inFoYou(Users userChat){
   return  Container(height: myHeight(350),width: myWidth(215),
       child: Column(
         children: [
@@ -73,7 +73,7 @@ class _CallPageState extends State<CallPage> {
       ],
     );
   }
-  Widget _buildAvatarCall(Followers userChat){
+  Widget _buildAvatarCall(Users userChat){
     return CircleAvatar(radius: myWidth(215/2),backgroundColor: Color(0xff4048EF).withOpacity(0.1),
         child:  CircleAvatar(radius: myWidth(178/2),backgroundColor: Color(0xff4048EF).withOpacity(0.1),
         child: CircleAvatar(radius: myWidth(146/2),backgroundColor: Color(0xff596DFF).withOpacity(0.1),

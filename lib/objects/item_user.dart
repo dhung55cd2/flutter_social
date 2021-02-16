@@ -1,12 +1,11 @@
-class User {
+class People {
   final String avatar;
   final String name;
   final double time;
   final String image;
-
-  User({this.avatar, this.name, this.time, this.image});
+  People({this.avatar, this.name, this.time, this.image});
 }
-class Followers {
+class Users {
   final String avatar;
   final String name;
   final String address;
@@ -20,7 +19,7 @@ class Followers {
   bool isOnline;
   final int Unread;
 
-  Followers(
+  Users(
       {this.avatar,
     this.name,
     this.address,
