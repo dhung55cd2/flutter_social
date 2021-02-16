@@ -35,3 +35,11 @@ class Users {
   });
 
 }
+
+class Account{
+  final name;
+  final email;
+  final password;
+
+  Account(this.name, this.email, this.password);
+}
