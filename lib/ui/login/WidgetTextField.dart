@@ -8,36 +8,19 @@ import 'package:flutter_social/widgets/textfield_email.dart';
 import 'package:flutter_social/widgets/textfield_password.dart';
 
 class TextFieldWidget extends StatelessWidget {
+  double height = 0;
   @override
   Widget build(BuildContext context) {
+
     Size size = MediaQuery.of(context).size;
-    double hightUnHideSizeBox;
-    return  KeyboardVisibilityBuilder(
-      builder: (context, isKeyboardVisible){
-        isKeyboardVisible ? hightUnHideSizeBox= 0 : hightUnHideSizeBox=200;
-      return  Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(height: myHeight(277),width: myWidth(335),
-                child: Stack(
-                  children: [
-                    _buildWidgetLogin(),
-                    Positioned(bottom: myHeight(0),left: myWidth(20),right: myWidth(20),
-                        child: _buildButtonLogin(context))
-                  ],
-
-                ),
-              ),
-              SizedBox(height: myHeight(hightUnHideSizeBox),)
-            ],
-
-          ),
-
-        );
-      }
-
+    return  Container(height: myHeight(277),width: myWidth(335),
+      child: Stack(
+        children: [
+          _buildWidgetLogin(),
+          Positioned(bottom: myHeight(0),left: myWidth(20),right: myWidth(20),
+              child: _buildButtonLogin(context))
+        ],
+      ),
     );
   }
   Widget _buildWidgetLogin(){
@@ -64,12 +47,6 @@ class TextFieldWidget extends StatelessWidget {
       child: CustomButon(height: 55,width: 295,radius: 10,background: color_blue,nameButton: "LOGIN",
             textColor: Colors.white,textSize: 12,),
     );
-    //   Container(
-    //   height: myHeight(55),width: myWidth(295),decoration: BoxDecoration(color: color_blue,borderRadius: BorderRadius.circular(myRadius(10))),
-    //   child: MaterialButton(onPressed: (){
-    //     Navigator.push(context, MaterialPageRoute(builder: (context) => PersonalPage()));
-    //   },
-    //   child: Text("LOGIN",style: TextStyle(color: Colors.white, fontSize: mySize(12)),),),
-    // );
+
   }
 }

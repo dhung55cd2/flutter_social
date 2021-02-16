@@ -6,13 +6,18 @@ import 'package:flutter_social/utils/colors.dart';
 import 'package:flutter_social/widgets/textfield_email.dart';
 import 'package:flutter_social/widgets/textfield_password.dart';
 
-class TextFieldCreatAccount extends StatelessWidget {
+class TextFieldCreatAccount extends StatefulWidget {
+  @override
+  _TextFieldCreatAccountState createState() => _TextFieldCreatAccountState();
+}
+
+class _TextFieldCreatAccountState extends State<TextFieldCreatAccount> {
   @override
   Widget build(BuildContext context) {
     double hightUnHideSizeBox;
     return  KeyboardVisibilityBuilder(
         builder: (context, isKeyboardVisible){
-          isKeyboardVisible ? hightUnHideSizeBox= 0 : hightUnHideSizeBox=45;
+          isKeyboardVisible ? hightUnHideSizeBox= 10 : hightUnHideSizeBox= 0;
           return  Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -30,6 +35,7 @@ class TextFieldCreatAccount extends StatelessWidget {
                   ),
                 ),
 
+
               ],
 
             ),
@@ -39,6 +45,7 @@ class TextFieldCreatAccount extends StatelessWidget {
 
     );
   }
+
   Widget _buildWidgetLogin(){
     return Container(
       height: myHeight(431.5),width: myWidth(335),decoration: BoxDecoration(boxShadow: [
@@ -60,8 +67,9 @@ class TextFieldCreatAccount extends StatelessWidget {
       ),
     );
   }
+
   Widget _buildButtonLogin(){
-    return CustomButon(height: 55,width: 295,radius: 10,nameButton: "LOGIN",textColor: Colors.white,textSize: 12,);
+    return CustomButon(height: 55,width: 295,radius: 10,nameButton: "LOGIN",background: color_blue,textColor: Colors.white,textSize: 12,);
     //   Container(
     //   height: myHeight(55),width: myWidth(295),decoration: BoxDecoration(color: color_blue,borderRadius: BorderRadius.circular(myRadius(10))),
     //   child: MaterialButton(child: Text("LOGIN",style: TextStyle(color: Colors.white, fontSize: mySize(12)),),),
