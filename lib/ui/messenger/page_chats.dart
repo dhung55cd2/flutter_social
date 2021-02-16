@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_social/objects/item_user.dart';
 import 'package:flutter_social/screen/screen_utils.dart';
-import 'file:///C:/Users/dvhnu/AndroidStudioProjects/flutter_social/lib/ui/messenger/messenger.dart';
+import 'package:flutter_social/ui/messenger/messenger.dart';
 import 'package:flutter_social/utils/colors.dart';
 import 'package:flutter_social/widgets/button_search.dart';
 import 'package:flutter_social/widgets/custom_avatar.dart';
 import 'package:flutter_social/widgets/icon_avatar.dart';
 
-import '../../objects/item_user.dart';
 
 class PageChats extends StatefulWidget {
   @override
@@ -25,12 +25,12 @@ class _PageChatsState extends State<PageChats> {
           _buildAppBar(size),
           ButtonSearch(),
           SizedBox(height: myHeight(10),),
-          _buildBodyPage(listUserChat)
+          _buildBodyPage(listFollowers)
         ],
       ),),
     );
   }
-  Widget _buildBodyPage(List<UserChat> list){
+  Widget _buildBodyPage(List<Followers> list){
     return Expanded(
         child: SingleChildScrollView(
           child: Column(
@@ -40,8 +40,8 @@ class _PageChatsState extends State<PageChats> {
     ),
         ));
   }
-  Widget _buildItemListView(List<UserChat> list, int index){
-    UserChat userChat = list[index];
+  Widget _buildItemListView(List<Followers> list, int index){
+    Followers userChat = list[index];
     return MaterialButton( padding: EdgeInsets.all(0),
       onPressed: (){
       Navigator.push(context, MaterialPageRoute(builder: (context) =>Messenger(userChat: userChat,)));
@@ -71,7 +71,7 @@ class _PageChatsState extends State<PageChats> {
     );
   }
 
-  Widget _buildUnRead(UserChat userChat) {
+  Widget _buildUnRead(Followers userChat) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -83,7 +83,7 @@ class _PageChatsState extends State<PageChats> {
         );
   }
 
-  Widget _buildInfoItem(UserChat userChat) {
+  Widget _buildInfoItem(Followers userChat) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(userChat.name, style: TextStyle(color: textColor, fontSize: mySize(14)),),
@@ -92,7 +92,7 @@ class _PageChatsState extends State<PageChats> {
         );
   }
 
-  Widget _buildAvatarItem(UserChat userChat) {
+  Widget _buildAvatarItem(Followers userChat) {
     return Container(height: myHeight(40),width: myWidth(40),
           child: Stack(
             children: [
@@ -123,16 +123,86 @@ class _PageChatsState extends State<PageChats> {
       ),
     );
   }
-  List<UserChat> listUserChat = [
-    UserChat('assets/followers/iniesta.jpg', 'Andrés Iniesta', 'xin chào', 16, true,2),
-    UserChat('assets/followers/khangan.jpg', "Khả Ngân", "Sài Gòn ", 8, false,5),
-    UserChat('assets/followers/khanhvan.jpg', "Khánh Vân", "Mình đến từ Buôn Ma Thuật", 10, false,0),
-    UserChat('assets/followers/nhunggumiho.jpg', 'Nhung Gumiho', 'Quảng Nam', 10, false,0),
-    UserChat('assets/followers/phuonganh.jpg', "Phương Anh Bolero ", 'Sài Gòn', 13, true,7),
-    UserChat('assets/followers/quynhtrang.jpg', "Quỳnh Trang Bolero", 'Sài Gòn', 20, true,1),
-    UserChat('assets/followers/ronaldo.jpg', 'Ronaldo', 'Portugal', 6, false,1),
-    UserChat('assets/followers/sungha.jpg', "Sung Ha", 'Nghe An', 22, false,0),
-    UserChat('assets/followers/vuphuongthao.jpg', 'Vũ Phương Thảo', 'Hà Nội ', 15, true,2),
-    UserChat('assets/followers/xavi.jpg', "XaVi", "Spain", 8.5, true,3),
+  List<Followers> listFollowers = [
+    Followers(
+        avatar: 'assets/followers/iniesta/iniesta1.jpg',
+        name:  'Andrés Iniesta',
+        address: 'Spain',
+        posts: 5,followers: 200,following: 999,isFollow: false,messenger: "Xin chào tôi là Iniesta",
+        time: 16,isOnline: true,Unread: 2,listImages:
+    ['assets/followers/iniesta/iniesta1.jpg', 'assets/followers/iniesta/iniesta2.jpg',
+      'assets/followers/iniesta/iniesta3.jpg', 'assets/followers/iniesta/iniesta4.jpg',
+      'assets/followers/iniesta/iniesta5.jpg']
+    ),
+    Followers(
+        avatar: 'assets/followers/khangan/khangan1.jpg',
+        name:  'Khả Ngân',
+        address: 'Sài Gòn',
+        posts: 5,followers: 310,following: 151,isFollow: false,messenger: "Xin chào tôi là Khả Ngân",
+        time: 8,isOnline: false,Unread: 5,listImages:
+    ['assets/followers/khangan/khangan1.jpg', 'assets/followers/khangan/khangan2.jpg',
+      'assets/followers/khangan/khangan3.jpg', 'assets/followers/khangan/khangan4.jpg',
+      'assets/followers/khangan/khangan5.jpg']
+    ),
+    Followers(
+        avatar: 'assets/followers/ronaldinho/ronaldinho1.jpg',
+        name:  'Ronaldinho',
+        address: 'Brazil',
+        posts: 5,followers: 399,following: 100,isFollow: true,messenger: "Xin chào tôi là Ronaldinho",
+        time: 9,isOnline: false,Unread: 0,listImages:
+    ['assets/followers/ronaldinho/ronaldinho1.jpg', 'assets/followers/ronaldinho/ronaldinho2.jpg',
+      'assets/followers/ronaldinho/ronaldinho3.jpg', 'assets/followers/ronaldinho/ronaldinho4.jpg',
+      'assets/followers/ronaldinho/ronaldinho5.jpg']
+    ),
+    Followers(
+        avatar: 'assets/followers/khanhvan/khanhvan1.jpg',
+        name:  'Đỗ Khánh Vân',
+        address: 'Buôn Ma Thuật',
+        posts: 5,followers: 201,following: 105,isFollow: false,messenger: "Xin chào tôi là Đỗ Khánh Vân",
+        time: 15,isOnline: false,Unread: 0,listImages:
+    ['assets/followers/khanhvan/khanhvan1.jpg', 'assets/followers/khanhvan/khanhvan2.png',
+      'assets/followers/khanhvan/khanhvan3.jpg', 'assets/followers/khanhvan/khanhvan4.jpg',
+      'assets/followers/khanhvan/khanhvan5.jpg']
+    ),
+    Followers(
+        avatar: 'assets/followers/ronaldo/ronaldo1.jpg',
+        name:  'Ronaldo Cr7',
+        address: 'Portugal',
+        posts: 5,followers: 501,following: 999,isFollow: false,messenger: "Xin chào tôi là Ronaldo Cr7",
+        time: 9,isOnline: true,Unread: 3,listImages:
+    ['assets/followers/ronaldo/ronaldo1.jpg', 'assets/followers/ronaldo/ronaldo2.jpg',
+      'assets/followers/ronaldo/ronaldo3.jpg', 'assets/followers/ronaldo/ronaldo4.jpg',
+      'assets/followers/ronaldo/ronaldo5.jpg']
+    ),
+    Followers(
+        avatar: 'assets/followers/nhunggumiho/nhunggumiho1.jpg',
+        name:  'Nhung Gumiho',
+        address: 'Quảng Nam',
+        posts: 5,followers: 201,following: 300,isFollow: true,messenger: "Xin chào tôi là Nhung Gumiho",
+        time: 14.5,isOnline: false,Unread: 0,listImages:
+    ['assets/followers/nhunggumiho/nhunggumiho1.jpg', 'assets/followers/nhunggumiho/nhunggumiho2.jpg',
+      'assets/followers/nhunggumiho/nhunggumiho3.jpg', 'assets/followers/nhunggumiho/nhunggumiho4.jpg',
+      'assets/followers/nhunggumiho/nhunggumiho5.jpg']
+    ),
+    Followers(
+        avatar: 'assets/followers/messi/messi1.jpg',
+        name:  'Messi',
+        address: 'Argentina',
+        posts: 5,followers: 355,following: 999,isFollow: true,messenger: "Xin chào tôi là Leo Messi",
+        time: 9,isOnline: false,Unread: 0,listImages:
+    ['assets/followers/messi/messi1.jpg', 'assets/followers/messi/messi2.jpg',
+      'assets/followers/messi/messi3.jpg ','assets/followers/messi/messi4.jpg',
+      'assets/followers/messi/messi5.jpg']
+    ),
+    Followers(
+        avatar: 'assets/followers/phuongthao/vuphuongthao1.jpg',
+        name:  'Vũ Phương Thảo',
+        address: 'Hà Nội',
+        posts: 5,followers: 111,following: 222,isFollow: false,messenger: "Xin chào tôi là Vũ Phương Thảo",
+        time: 9,isOnline: false,Unread: 0,listImages:
+    ['assets/followers/phuongthao/vuphuongthao1.jpg', 'assets/followers/phuongthao/vuphuongthao2.jpg',
+      'assets/followers/phuongthao/vuphuongthao3.jpg','assets/followers/phuongthao/vuphuongthao4.jpg',
+      'assets/followers/phuongthao/vuphuongthao5.jpg']
+    ),
   ];
 }

@@ -10,7 +10,16 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  TextEditingController controllerEmail = TextEditingController();
+  TextEditingController controllerPassword = TextEditingController();
+
   double _heightShowKeyboard =0;
+  @override
+  void dispose() {
+    controllerEmail.dispose();
+    controllerPassword.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -25,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    TextFieldWidget(),
+                    TextFieldWidget(controllerEmail: controllerEmail,controllerPassword: controllerPassword,),
                     SizedBox(height: (myHeight(200)+myHeight(_heightShowKeyboard)),)
                   ],
                 ),

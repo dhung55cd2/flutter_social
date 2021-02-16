@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_social/objects/CustomButton.dart';
 import 'package:flutter_social/objects/item_user.dart';
 import 'package:flutter_social/screen/screen_utils.dart';
+import 'package:flutter_social/ui/messenger/messenger.dart';
 import 'file:///C:/Users/dvhnu/AndroidStudioProjects/flutter_social/lib/ui/messenger/video_call.dart';
 import 'package:flutter_social/utils/colors.dart';
 import 'package:flutter_social/widgets/build_custom_icon.dart';
 import 'package:flutter_social/widgets/icon_avatar.dart';
 
 class CallPage extends StatefulWidget {
-  final UserChat userChat;
+  final Followers userChat;
 
   const CallPage({Key key, this.userChat}) : super(key: key);
   @override
@@ -38,13 +39,15 @@ class _CallPageState extends State<CallPage> {
             CustomButon(height: 45,width: 215,nameButton: "END CALL",radius: 22.5,background: color_pink,textColor: Colors.white,textSize: 12,
             icon: Image.asset('assets/icons/end call.png',color: Colors.white,fit: BoxFit.cover,),
             onpress: (){
+              Navigator.of(context).pop();
+              print('ds');
             },)
           ],
         ),
       ),
     );
   }
-  Widget inFoYou(UserChat userChat){
+  Widget inFoYou(Followers userChat){
   return  Container(height: myHeight(350),width: myWidth(215),
       child: Column(
         children: [
@@ -70,7 +73,7 @@ class _CallPageState extends State<CallPage> {
       ],
     );
   }
-  Widget _buildAvatarCall(UserChat userChat){
+  Widget _buildAvatarCall(Followers userChat){
     return CircleAvatar(radius: myWidth(215/2),backgroundColor: Color(0xff4048EF).withOpacity(0.1),
         child:  CircleAvatar(radius: myWidth(178/2),backgroundColor: Color(0xff4048EF).withOpacity(0.1),
         child: CircleAvatar(radius: myWidth(146/2),backgroundColor: Color(0xff596DFF).withOpacity(0.1),

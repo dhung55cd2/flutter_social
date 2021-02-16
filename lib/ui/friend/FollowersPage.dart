@@ -22,18 +22,18 @@ class FollowersPage extends StatelessWidget {
             _buildAppBar(size),
             ButtonSearch(),
             SizedBox(height: myHeight(20),),
-            _buildBodyPage(context)
+            _buildBodyPage(context, listFollowers)
           ],
         ),
       ),
     );
   }
-  Widget _buildBodyPage(BuildContext context){
+  Widget _buildBodyPage(BuildContext context, List<Followers> list){
     return Expanded(child:
         SingleChildScrollView(
           child: Column(
-            children: List.generate(listFollowers.length, (index) {
-              return _buildItemBodyPage(listFollowers,index,context);
+            children: List.generate(list.length, (index) {
+              return _buildItemBodyPage(list,index,context);
             }),
           ),
         )
@@ -97,38 +97,86 @@ class FollowersPage extends StatelessWidget {
     );
   }
   List<Followers> listFollowers = [
-    Followers('assets/followers/iniesta/iniesta1.jpg', 'Andrés Iniesta','Spain',5 , 200, 999,false,
-        ['assets/followers/iniesta/iniesta1.jpg', 'assets/followers/iniesta/iniesta2.jpg',
-          'assets/followers/iniesta/iniesta3.jpg', 'assets/followers/iniesta/iniesta4.jpg',
-          'assets/followers/iniesta/iniesta5.jpg']),
-    Followers('assets/followers/khangan/khangan1.jpg', "Khả Ngân", "Sài Gòn ", 5, 310,151,false,
-        ['assets/followers/khangan/khangan1.jpg', 'assets/followers/khangan/khangan2.jpg',
-          'assets/followers/khangan/khangan3.jpg', 'assets/followers/khangan/khangan4.jpg',
-          'assets/followers/khangan/khangan5.jpg']),
-    Followers('assets/followers/ronaldinho/ronaldinho1.jpg', 'Ronaldinho', "Brazil", 5, 999,152,true,
-        ['assets/followers/ronaldinho/ronaldinho1.jpg', 'assets/followers/ronaldinho/ronaldinho2.jpg',
-          'assets/followers/ronaldinho/ronaldinho3.jpg', 'assets/followers/ronaldinho/ronaldinho4.jpg',
-          'assets/followers/ronaldinho/ronaldinho5.jpg']),
-    Followers('assets/followers/khanhvan/khanhvan1.jpg', "Khánh Vân", "Buôn Ma Thuật", 5, 122,153,true,
-        ['assets/followers/khanhvan/khanhvan1.jpg', 'assets/followers/khanhvan/khanhvan2.png',
-          'assets/followers/khanhvan/khanhvan3.jpg', 'assets/followers/khanhvan/khanhvan4.jpg',
-          'assets/followers/khanhvan/khanhvan5.jpg']),
-    Followers('assets/followers/ronaldo/ronaldo1.jpg', 'Ronaldo', 'Portugal', 5, 999,154,false,
-        ['assets/followers/ronaldo/ronaldo1.jpg', 'assets/followers/ronaldo/ronaldo2.jpg',
-          'assets/followers/ronaldo/ronaldo3.jpg', 'assets/followers/ronaldo/ronaldo4.jpg',
-          'assets/followers/ronaldo/ronaldo5.jpg']),
-    Followers('assets/followers/nhunggumiho/nhunggumiho1.jpg', 'Nhung Gumiho', 'Quảng Nam', 5, 199,155,true,
-        ['assets/followers/nhunggumiho/nhunggumiho1.jpg', 'assets/followers/nhunggumiho/nhunggumiho2.jpg',
-          'assets/followers/nhunggumiho/nhunggumiho3.jpg', 'assets/followers/nhunggumiho/nhunggumiho4.jpg',
-          'assets/followers/nhunggumiho/nhunggumiho5.jpg']),
-    Followers('assets/followers/messi/messi1.jpg', 'Messi', 'Argentina', 5, 999,156,true,
-        ['assets/followers/messi/messi1.jpg', 'assets/followers/messi/messi2.jpg',
-          'assets/followers/messi/messi3.jpg ','assets/followers/messi/messi4.jpg',
-          'assets/followers/messi/messi5.jpg']),
-    Followers('assets/followers/phuongthao/vuphuongthao1.jpg', 'Vũ Phương Thảo', 'Hà Nội', 5, 888,157,true,
-        ['assets/followers/phuongthao/vuphuongthao1.jpg', 'assets/followers/phuongthao/vuphuongthao2.jpg',
-          'assets/followers/phuongthao/vuphuongthao3.jpg','assets/followers/phuongthao/vuphuongthao4.jpg',
-          'assets/followers/phuongthao/vuphuongthao5.jpg']),
-
+    Followers(
+        avatar: 'assets/followers/iniesta/iniesta1.jpg',
+        name:  'Andrés Iniesta',
+        address: 'Spain',
+        posts: 5,followers: 200,following: 999,isFollow: false,messenger: "Xin chào tôi là Iniesta",
+        time: 16,isOnline: true,Unread: 2,listImages:
+    ['assets/followers/iniesta/iniesta1.jpg', 'assets/followers/iniesta/iniesta2.jpg',
+      'assets/followers/iniesta/iniesta3.jpg', 'assets/followers/iniesta/iniesta4.jpg',
+      'assets/followers/iniesta/iniesta5.jpg']
+    ),
+    Followers(
+        avatar: 'assets/followers/khangan/khangan1.jpg',
+        name:  'Khả Ngân',
+        address: 'Sài Gòn',
+        posts: 5,followers: 310,following: 151,isFollow: false,messenger: "Xin chào tôi là Khả Ngân",
+        time: 8,isOnline: false,Unread: 5,listImages:
+    ['assets/followers/khangan/khangan1.jpg', 'assets/followers/khangan/khangan2.jpg',
+      'assets/followers/khangan/khangan3.jpg', 'assets/followers/khangan/khangan4.jpg',
+      'assets/followers/khangan/khangan5.jpg']
+    ),
+    Followers(
+        avatar: 'assets/followers/ronaldinho/ronaldinho1.jpg',
+        name:  'Ronaldinho',
+        address: 'Brazil',
+        posts: 5,followers: 399,following: 100,isFollow: true,messenger: "Xin chào tôi là Ronaldinho",
+        time: 9,isOnline: false,Unread: 0,listImages:
+    ['assets/followers/ronaldinho/ronaldinho1.jpg', 'assets/followers/ronaldinho/ronaldinho2.jpg',
+      'assets/followers/ronaldinho/ronaldinho3.jpg', 'assets/followers/ronaldinho/ronaldinho4.jpg',
+      'assets/followers/ronaldinho/ronaldinho5.jpg']
+    ),
+    Followers(
+        avatar: 'assets/followers/khanhvan/khanhvan1.jpg',
+        name:  'Đỗ Khánh Vân',
+        address: 'Buôn Ma Thuật',
+        posts: 5,followers: 201,following: 105,isFollow: false,messenger: "Xin chào tôi là Đỗ Khánh Vân",
+        time: 15,isOnline: false,Unread: 0,listImages:
+    ['assets/followers/khanhvan/khanhvan1.jpg', 'assets/followers/khanhvan/khanhvan2.png',
+      'assets/followers/khanhvan/khanhvan3.jpg', 'assets/followers/khanhvan/khanhvan4.jpg',
+      'assets/followers/khanhvan/khanhvan5.jpg']
+    ),
+    Followers(
+        avatar: 'assets/followers/ronaldo/ronaldo1.jpg',
+        name:  'Ronaldo Cr7',
+        address: 'Portugal',
+        posts: 5,followers: 501,following: 999,isFollow: false,messenger: "Xin chào tôi là Ronaldo Cr7",
+        time: 9,isOnline: true,Unread: 3,listImages:
+    ['assets/followers/ronaldo/ronaldo1.jpg', 'assets/followers/ronaldo/ronaldo2.jpg',
+      'assets/followers/ronaldo/ronaldo3.jpg', 'assets/followers/ronaldo/ronaldo4.jpg',
+      'assets/followers/ronaldo/ronaldo5.jpg']
+    ),
+    Followers(
+        avatar: 'assets/followers/nhunggumiho/nhunggumiho1.jpg',
+        name:  'Nhung Gumiho',
+        address: 'Quảng Nam',
+        posts: 5,followers: 201,following: 300,isFollow: true,messenger: "Xin chào tôi là Nhung Gumiho",
+        time: 14.5,isOnline: false,Unread: 0,listImages:
+    ['assets/followers/nhunggumiho/nhunggumiho1.jpg', 'assets/followers/nhunggumiho/nhunggumiho2.jpg',
+      'assets/followers/nhunggumiho/nhunggumiho3.jpg', 'assets/followers/nhunggumiho/nhunggumiho4.jpg',
+      'assets/followers/nhunggumiho/nhunggumiho5.jpg']
+    ),
+    Followers(
+        avatar: 'assets/followers/messi/messi1.jpg',
+        name:  'Messi',
+        address: 'Argentina',
+        posts: 5,followers: 355,following: 999,isFollow: true,messenger: "Xin chào tôi là Leo Messi",
+        time: 9,isOnline: false,Unread: 0,listImages:
+    ['assets/followers/messi/messi1.jpg', 'assets/followers/messi/messi2.jpg',
+      'assets/followers/messi/messi3.jpg ','assets/followers/messi/messi4.jpg',
+      'assets/followers/messi/messi5.jpg']
+    ),
+    Followers(
+        avatar: 'assets/followers/phuongthao/vuphuongthao1.jpg',
+        name:  'Vũ Phương Thảo',
+        address: 'Hà Nội',
+        posts: 5,followers: 111,following: 222,isFollow: false,messenger: "Xin chào tôi là Vũ Phương Thảo",
+        time: 9,isOnline: false,Unread: 0,listImages:
+    ['assets/followers/phuongthao/vuphuongthao1.jpg', 'assets/followers/phuongthao/vuphuongthao2.jpg',
+      'assets/followers/phuongthao/vuphuongthao3.jpg','assets/followers/phuongthao/vuphuongthao4.jpg',
+      'assets/followers/phuongthao/vuphuongthao5.jpg']
+    ),
   ];
+
 }

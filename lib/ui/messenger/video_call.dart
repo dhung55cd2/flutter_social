@@ -6,7 +6,7 @@ import 'package:flutter_social/utils/colors.dart';
 import 'package:flutter_social/widgets/icon_avatar.dart';
 
 class VideoCall extends StatelessWidget {
-  final UserChat userChat;
+  final Followers userChat;
 
   const VideoCall({Key key, this.userChat}) : super(key: key);
   @override
@@ -25,7 +25,7 @@ class VideoCall extends StatelessWidget {
            children: [
              _rowIcon(),
              SizedBox(height: myHeight(20),),
-             _buildButton()
+             _buildButton(context)
            ],
          )
         )
@@ -42,11 +42,12 @@ class VideoCall extends StatelessWidget {
       ),
     );
   }
-  Widget _buildButton(){
+  Widget _buildButton(BuildContext context){
     return  CustomButon(height: 45,width: 215,nameButton: "END CALL",radius: 22.5,
       background: color_pink,textColor: Colors.white,textSize: 12,
       icon: Image.asset('assets/icons/end call.png',color: Colors.white,fit: BoxFit.cover,),
       onpress: (){
+        Navigator.of(context).pop();
       },);
   }
   Widget _rowIcon() {
@@ -59,7 +60,7 @@ class VideoCall extends StatelessWidget {
       ],
     ),);
   }
-  Widget _background(UserChat userChat){
+  Widget _background(Followers userChat){
     return Container(
       decoration: BoxDecoration(image: DecorationImage(image: AssetImage(userChat.avatar),fit: BoxFit.cover)),
     );
