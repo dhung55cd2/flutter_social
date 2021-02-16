@@ -11,6 +11,10 @@ class CreateAccount extends StatefulWidget {
 
 class _CreateAccountState extends State<CreateAccount> {
   double _heightShowKeyboard=0;
+  final TextEditingController controllerName = TextEditingController();
+  final TextEditingController controllerEmail= TextEditingController();
+  final TextEditingController controllerPass= TextEditingController();
+  final TextEditingController controllerRepeatPass= TextEditingController();
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -27,7 +31,8 @@ class _CreateAccountState extends State<CreateAccount> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        TextFieldCreatAccount(),
+                        TextFieldCreatAccount(controllerName: controllerName,
+                        controllerEmail: controllerEmail,controllerPass: controllerPass,controllerRepeatPass: controllerRepeatPass,),
                         SizedBox(height: myHeight(80+_heightShowKeyboard),)
                       ],
                     ),

@@ -75,15 +75,20 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
           Navigator.push(context, MaterialPageRoute(builder: (context) => PersonalPage()));
         } else {
           showBottomSheet(context: context, builder: (context) {
-            return Container(height: myHeight(100),width: size.width,color: Colors.teal[50],alignment: Alignment.center,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                !emailValid ? Text("Email chưa hợp lệ", style: TextStyle(color: Colors.black,fontSize: mySize(16)),) : SizedBox(),
-                SizedBox(height: myHeight(10),),
-                !passValid ? Text("Password chưa hợp lệ",style: TextStyle(color: Colors.black,fontSize: mySize(16)),) : SizedBox()
-              ],
-            ),);
+            return InkWell(
+              onTap: (){
+                Navigator.of(context).pop();
+              },
+              child: Container(height: myHeight(100),width: size.width,color: Colors.teal[50],alignment: Alignment.center,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  !emailValid ? Text("Email chưa hợp lệ", style: TextStyle(color: Colors.black,fontSize: mySize(16)),) : SizedBox(),
+                  SizedBox(height: myHeight(10),),
+                  !passValid ? Text("Password chưa hợp lệ",style: TextStyle(color: Colors.black,fontSize: mySize(16)),) : SizedBox()
+                ],
+              ),),
+            );
           });
         }
 
