@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_social/objects/item_user.dart';
 import 'package:flutter_social/screen/screen_utils.dart';
-import 'package:flutter_social/ui/FollowersPage.dart';
+import 'package:flutter_social/ui/friend/FollowersPage.dart';
 import 'package:flutter_social/utils/colors.dart';
 
 class InforStatistics extends StatefulWidget {
-  final int posts;
-  final int followers;
-  final int following;
+  final Followers follower;
+
 
   const InforStatistics(
-      {Key key, this.posts, this.followers, this.following})
+      {Key key, this.follower})
       : super(key: key);
   @override
   _InforStatisticsState createState() => _InforStatisticsState();
@@ -36,11 +36,11 @@ class _InforStatisticsState extends State<InforStatistics> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           _customListTitle(
-              height: 48, width: 40, number: widget.posts, subtitle: "Posts"),
+              height: 48, width: 40, number: widget.follower.posts, subtitle: "Posts"),
           _customListTitle(
-              height: 48, width: 63, number: widget.followers, subtitle: "Followers"),
+              height: 48, width: 63, number: widget.follower.followers, subtitle: "Followers"),
           _customListTitle(
-              height: 48, width: 62, number: widget.following, subtitle: "Following"),
+              height: 48, width: 62, number: widget.follower.following, subtitle: "Following"),
         ],
       ),
     );

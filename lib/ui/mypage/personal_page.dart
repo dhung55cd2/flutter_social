@@ -2,16 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_social/objects/item_images.dart';
 import 'package:flutter_social/screen/screen_utils.dart';
-import 'package:flutter_social/ui/FollowersPage.dart';
 import 'package:flutter_social/ui/create_post.dart';
-import 'package:flutter_social/ui/follow_page.dart';
-import 'package:flutter_social/ui/login/login_page.dart';
+import 'package:flutter_social/ui/friend/FollowersPage.dart';
 import 'package:flutter_social/utils/colors.dart';
 import 'package:flutter_social/utils/gridview_images.dart';
 import 'package:flutter_social/widgets/customInfoStatistic.dart';
 import 'package:flutter_social/widgets/custom_avatar.dart';
-import 'package:flutter_social/widgets/infor_statistics.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class PersonalPage extends StatefulWidget {
   @override
@@ -32,7 +28,7 @@ class _PersonalPageState extends State<PersonalPage> {
                   Container(width: size.width,height: myHeight(170),
                   child: Image.asset('assets/images/backround.png',fit: BoxFit.fill,),),
                   Positioned(top: myHeight(99),left: myWidth(118),
-                      child: _buildInforUser(context,"Lisa Springston", "San Francisco, CA")),
+                      child: _buildInforUser(context,"Lisa Springston", "San Francisco, CA",listImages[0].image)),
                 ],
               ),
             ),
@@ -72,12 +68,12 @@ class _PersonalPageState extends State<PersonalPage> {
       ),
     );
   }
-  Widget _buildInforUser(BuildContext context,String name, String address){
+  Widget _buildInforUser(BuildContext context,String name, String address, String image){
     return Container(
       height: myHeight(204),width: myWidth(226),
       child: Stack(
         children: [
-          Positioned(top: 0,left: 10,child: CustomAvatar(outsideradius: 69.5,insideradius: 64.5,images: 'assets/myimages/image3.jpg',)),
+          Positioned(top: 0,left: 10,child: CustomAvatar(outsideradius: 69.5,insideradius: 64.5,images: image,)),
           Positioned(bottom: 0,left: 12,
             child: _nameAddress(name, address),
           ),
@@ -87,9 +83,8 @@ class _PersonalPageState extends State<PersonalPage> {
       boxShadow: [
         BoxShadow(offset: Offset(3,7),blurRadius: myRadius(15),color: Colors.grey[300])
       ]),
-          child: MaterialButton(onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context) => FollowPage()));
-          },child: Text("EDIT PROFILE",style: TextStyle(color: color_editprofile,fontSize: mySize(12)),)),))
+          child: MaterialButton(onPressed: (){},
+              child: Text("EDIT PROFILE",style: TextStyle(color: color_editprofile,fontSize: mySize(12)),)),))
         ],
       ),
     );
@@ -104,16 +99,16 @@ class _PersonalPageState extends State<PersonalPage> {
           ));
   }
   List<Images> listImages = [
-    Images(image: 'assets/myimages/image0.jpg',isVideo: false),
-    Images(image: 'assets/myimages/image1.jpg',isVideo: false),
-    Images(image: 'assets/myimages/image2.jpg',isVideo: false),
-    Images(image: 'assets/myimages/image3.jpg',isVideo: true),
-    Images(image: 'assets/myimages/image4.jpg',isVideo: false),
-    Images(image: 'assets/myimages/image5.jpg',isVideo: false),
-    Images(image: 'assets/myimages/image6.png',isVideo: true),
-    Images(image: 'assets/myimages/image7.png',isVideo: false),
-    Images(image: 'assets/myimages/image8.jpg',isVideo: false),
-    Images(image: 'assets/myimages/image9.jpg',isVideo: false),
+    Images(image: 'assets/account/account1.jpg',isVideo: false),
+    Images(image: 'assets/account/account2.jpg',isVideo: false),
+    Images(image: 'assets/account/account3.jpg',isVideo: false),
+    Images(image: 'assets/account/account4.jpg',isVideo: true),
+    Images(image: 'assets/account/account5.jpg',isVideo: false),
+    Images(image: 'assets/account/account6.jpg',isVideo: false),
+    Images(image: 'assets/account/account7.jpg',isVideo: true),
+    Images(image: 'assets/account/account8.jpg',isVideo: false),
+    Images(image: 'assets/account/account9.jpg',isVideo: false),
+    Images(image: 'assets/account/account10.jpg',isVideo: false),
 
   ];
 }

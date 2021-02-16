@@ -12,9 +12,20 @@ class Followers {
   final String address;
   final int posts;
   final int followers;
+  final int following;
   bool isFollow;
+  final List<String> listImages;
 
-  Followers(this.avatar, this.name, this.address, this.posts, this.followers, this.isFollow);
+
+  Followers(
+      this.avatar,
+      this.name,
+      this.address,
+      this.posts,
+      this.followers,
+      this.following,
+      this.isFollow,
+      this.listImages);
 
 
 }

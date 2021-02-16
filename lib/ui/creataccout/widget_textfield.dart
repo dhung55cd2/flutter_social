@@ -1,51 +1,25 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_social/objects/CustomButton.dart';
 import 'package:flutter_social/screen/screen_utils.dart';
+import 'package:flutter_social/ui/login/login_page.dart';
 import 'package:flutter_social/utils/colors.dart';
-import 'package:flutter_social/widgets/textfield_email.dart';
-import 'package:flutter_social/widgets/textfield_password.dart';
-
-class TextFieldCreatAccount extends StatefulWidget {
-  @override
-  _TextFieldCreatAccountState createState() => _TextFieldCreatAccountState();
-}
-
-class _TextFieldCreatAccountState extends State<TextFieldCreatAccount> {
+import 'package:flutter_social/widgets/custom_textfield.dart';
+class TextFieldCreatAccount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    double hightUnHideSizeBox;
-    return  KeyboardVisibilityBuilder(
-        builder: (context, isKeyboardVisible){
-          isKeyboardVisible ? hightUnHideSizeBox= 10 : hightUnHideSizeBox= 0;
-          return  Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(height: myHeight(hightUnHideSizeBox),),
-                Container(height: myHeight(460),width: myWidth(335),
-                  child: Stack(
-                    children: [
-                      _buildWidgetLogin(),
-                      Positioned(bottom: myHeight(0),left: myWidth(20),right: myWidth(20),
-                          child: _buildButtonLogin())
-                    ],
+    return Container(height: myHeight(460),width: myWidth(335),
+      child: Stack(
+        children: [
+          _buildWidgetLogin(),
+          Positioned(bottom: myHeight(0),left: myWidth(20),right: myWidth(20),
+              child: _buildButtonLogin(context))
+        ],
 
-                  ),
-                ),
-
-
-              ],
-
-            ),
-
-          );
-        }
-
+      ),
     );
   }
-
   Widget _buildWidgetLogin(){
     return Container(
       height: myHeight(431.5),width: myWidth(335),decoration: BoxDecoration(boxShadow: [
@@ -54,25 +28,26 @@ class _TextFieldCreatAccountState extends State<TextFieldCreatAccount> {
       child: Column(
         children: [
           SizedBox(height: myHeight(23),),
-          TextFieldSimple(height: 68,width: 295,hintText: "Enter your name",labelText:"Name",),
+          WidgetEmail(height: 68,width: 295,hintText: "Enter your name",labelText: "Name",),
           SizedBox(height: myHeight(23),),
-          TextFieldSimple(height: 68,width: 295,hintText: "Enter your email address",labelText:"Email",),
+          WidgetEmail(height: 68,width: 295,hintText: "Enter your email address",labelText: "Emal",),
           SizedBox(height: myHeight(23),),
-          TextFieldSuffixIcon(height: 68,width: 295,hintText: "Choose a password",labelText:"Password",titleIcon: "",),
+          WidgetPassword(height: 68,width: 295,hintText: "Choose a password",labelText: "Password",checkShow: true,),
           SizedBox(height: myHeight(23),),
-          TextFieldSuffixIcon(height: 68,width: 295,hintText: "Repeat a password",labelText:"Password",titleIcon: "",),
+          WidgetPassword(height: 68,width: 295,hintText: "Repeat a password",labelText: "Password",checkShow: true,),
 
 
         ],
       ),
     );
   }
+  Widget _buildButtonLogin(BuildContext context){
+    return CustomButon(
+      onpress: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+      },
+      height: 55,width: 295,radius: 10,nameButton: "SIGN UP",
+      background: color_blue,textColor: Colors.white,textSize: 12,);
 
-  Widget _buildButtonLogin(){
-    return CustomButon(height: 55,width: 295,radius: 10,nameButton: "LOGIN",background: color_blue,textColor: Colors.white,textSize: 12,);
-    //   Container(
-    //   height: myHeight(55),width: myWidth(295),decoration: BoxDecoration(color: color_blue,borderRadius: BorderRadius.circular(myRadius(10))),
-    //   child: MaterialButton(child: Text("LOGIN",style: TextStyle(color: Colors.white, fontSize: mySize(12)),),),
-    // );
   }
 }

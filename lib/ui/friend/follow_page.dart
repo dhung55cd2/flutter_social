@@ -1,36 +1,76 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_social/objects/CustomButton.dart';
 import 'package:flutter_social/objects/item_images.dart';
+import 'package:flutter_social/objects/item_user.dart';
 import 'package:flutter_social/screen/screen_utils.dart';
+import 'package:flutter_social/ui/create_post.dart';
+import 'package:flutter_social/ui/friend/FollowersPage.dart';
 import 'package:flutter_social/utils/colors.dart';
 import 'package:flutter_social/utils/gridview_images.dart';
+import 'package:flutter_social/widgets/customInfoStatistic.dart';
 import 'package:flutter_social/widgets/custom_avatar.dart';
 import 'package:flutter_social/widgets/icon_avatar.dart';
 import 'package:flutter_social/widgets/info_friend.dart';
 import 'package:flutter_social/widgets/infor_statistics.dart';
 
 class FollowPage extends StatefulWidget {
+  final Followers followers;
+
+  const FollowPage({Key key, this.followers}) : super(key: key);
   @override
   _FollowPageState createState() => _FollowPageState();
 }
 
 class _FollowPageState extends State<FollowPage> {
+
   @override
   Widget build(BuildContext context) {
+    List<Images> listimage = List();
+    for(int i = 0; i < widget.followers.listImages.length; i++) {
+      listimage.add(Images(image: widget.followers.listImages[i], isVideo: i %3 ==0 ? true :false));
+    }
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(height: size.height,width: size.width,
         child: Column(
           children: [
-            _buildInfor(size),
-            InforStatistics(posts: 132,followers: 170,following: 1500,),
-            ImagesGridView(listImages: listImages,)
+            _buildInfor(size, widget.followers),
+            _buildRowInfoStatistics(context, widget.followers),
+            ImagesGridView(listImages: listimage,)
           ],
       ),
       ),
     );
   }
-  Widget _buildInfor(Size size){
+  Widget _buildRowInfoStatistics(BuildContext context, Followers followers){
+    return Container(  height: myHeight(72), width: myWidth(335),
+      padding: EdgeInsets.symmetric(horizontal: myWidth(30)),
+      decoration: BoxDecoration(color: Colors.white, boxShadow: [
+        BoxShadow(
+            offset: Offset(7, 7),
+            blurRadius: myRadius(20),
+            color: Colors.grey[200]),
+        BoxShadow(
+            offset: Offset(-1, -1),
+            blurRadius: myRadius(1),
+            color: Colors.grey[200])
+      ]),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          CustomInfoStatistic(number: followers.posts,title: "Posts",onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => CreatPost()));
+          },),
+          CustomInfoStatistic(number: followers.followers,title: "Followers",onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => FollowersPage()));
+          },),
+          CustomInfoStatistic(number: followers.following,title: "Following",onPressed: (){},),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildInfor(Size size, Followers followers){
     return Container(height: myHeight(268),width: size.width,
       child: Stack(
         children: [
@@ -41,9 +81,9 @@ class _FollowPageState extends State<FollowPage> {
           Positioned(top: myHeight(108),left: myWidth(20),
               child: Row(
                 children: [
-                  CustomAvatar(outsideradius: 65,insideradius: 60,images: 'assets/myimages/image2.jpg',),
+                  CustomAvatar(outsideradius: 65,insideradius: 60,images: followers.avatar,),
                   SizedBox(width: myWidth(20),),
-                  inFor(name: "Amanda Roberts", address: "San Francisco, CA", post: 78, followers: 213,isFollow: false),
+                  inFor(name: followers.name, address: followers.address, post: followers.posts, followers: followers.followers,isFollow: false),
                 ],
               ))
         ],
@@ -75,17 +115,4 @@ class _FollowPageState extends State<FollowPage> {
       },
     );
   }
-  List<Images> listImages = [
-    Images(image: 'assets/myimages/image0.jpg',isVideo: false),
-    Images(image: 'assets/myimages/image1.jpg',isVideo: false),
-    Images(image: 'assets/myimages/image2.jpg',isVideo: false),
-    Images(image: 'assets/myimages/image3.jpg',isVideo: true),
-    Images(image: 'assets/myimages/image4.jpg',isVideo: false),
-    Images(image: 'assets/myimages/image5.jpg',isVideo: false),
-    Images(image: 'assets/myimages/image6.png',isVideo: true),
-    Images(image: 'assets/myimages/image7.png',isVideo: false),
-    Images(image: 'assets/myimages/image8.jpg',isVideo: false),
-    Images(image: 'assets/myimages/image9.jpg',isVideo: false),
-
-  ];
 }

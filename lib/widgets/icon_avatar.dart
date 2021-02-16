@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_social/page_chats.dart';
+import 'file:///C:/Users/dvhnu/AndroidStudioProjects/flutter_social/lib/ui/messenger/page_chats.dart';
 import 'package:flutter_social/screen/screen_utils.dart';
 
 class AvatarIcon extends StatelessWidget {

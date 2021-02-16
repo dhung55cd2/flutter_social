@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_social/screen/screen_utils.dart';
-import 'package:flutter_social/ui/messenger.dart';
+import 'file:///C:/Users/dvhnu/AndroidStudioProjects/flutter_social/lib/ui/messenger/messenger.dart';
 import 'package:flutter_social/utils/colors.dart';
 import 'package:flutter_social/widgets/button_search.dart';
 import 'package:flutter_social/widgets/custom_avatar.dart';
 import 'package:flutter_social/widgets/icon_avatar.dart';
 
-import 'objects/item_user.dart';
+import '../../objects/item_user.dart';
 
 class PageChats extends StatefulWidget {
   @override

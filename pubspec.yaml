@@ -54,7 +54,15 @@ flutter:
     - assets/images/
     - assets/myimages/
     - assets/icons/
-    - assets/followers/
+    - assets/followers/iniesta/
+    - assets/followers/khangan/
+    - assets/followers/khanhvan/
+    - assets/followers/messi/
+    - assets/followers/nhunggumiho/
+    - assets/followers/phuongthao/
+    - assets/followers/ronaldinho/
+    - assets/followers/ronaldo/
+    - assets/account/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

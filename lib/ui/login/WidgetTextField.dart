@@ -2,18 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_social/objects/CustomButton.dart';
 import 'package:flutter_social/screen/screen_utils.dart';
-import 'package:flutter_social/ui/personal_page.dart';
+import 'file:///C:/Users/dvhnu/AndroidStudioProjects/flutter_social/lib/ui/mypage/personal_page.dart';
 import 'package:flutter_social/utils/colors.dart';
-import 'package:flutter_social/widgets/textfield_email.dart';
-import 'package:flutter_social/widgets/textfield_password.dart';
+import 'package:flutter_social/widgets/custom_textfield.dart';
 
 class TextFieldWidget extends StatelessWidget {
-  double height = 0;
   @override
   Widget build(BuildContext context) {
-
-    Size size = MediaQuery.of(context).size;
-    return  Container(height: myHeight(277),width: myWidth(335),
+    return  Container(height: myHeight(300),width: myWidth(335),
       child: Stack(
         children: [
           _buildWidgetLogin(),
@@ -25,15 +21,22 @@ class TextFieldWidget extends StatelessWidget {
   }
   Widget _buildWidgetLogin(){
     return Container(
-      height: myHeight(250),width: myWidth(335),decoration: BoxDecoration(boxShadow: [
+      height: myHeight(272.5),width: myWidth(335),decoration: BoxDecoration(boxShadow: [
         BoxShadow(offset: Offset(10,10),blurRadius: myRadius(30),color: Colors.grey[300])
     ],color: Colors.white,borderRadius: BorderRadius.circular(myRadius(6))),
       child: Column(
         children: [
           SizedBox(height: myHeight(23),),
-          TextFieldSimple(height: 68,width: 295,hintText: "Enter email address",labelText:"Email or Username",),
+          WidgetEmail(height: 68,width: 295,hintText: 'Enter email address',labelText: "Email or Username",),
           SizedBox(height: myHeight(23),),
-          TextFieldSuffixIcon(height: 68,width: 295,hintText: "Enter password",labelText:"Password",titleIcon: "FORGOT?",)
+          WidgetPassword(height: 68,width: 295,hintText: 'Enter password',checkShow: true,labelText: "Password",),
+          SizedBox(height: myHeight(10),),
+          Container(alignment: Alignment.centerRight,
+            child: TextButton(onPressed: (){},
+                child: Text("FORGOT?",style: TextStyle(color: color_blue,fontSize: mySize(11)),)),
+          )
+
+
 
         ],
       ),

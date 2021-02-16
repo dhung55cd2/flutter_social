@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_social/objects/CustomButton.dart';
 import 'package:flutter_social/objects/item_user.dart';
 import 'package:flutter_social/screen/screen_utils.dart';
-import 'package:flutter_social/ui/video_call.dart';
+import 'file:///C:/Users/dvhnu/AndroidStudioProjects/flutter_social/lib/ui/messenger/video_call.dart';
 import 'package:flutter_social/utils/colors.dart';
 import 'package:flutter_social/widgets/build_custom_icon.dart';
 import 'package:flutter_social/widgets/icon_avatar.dart';
