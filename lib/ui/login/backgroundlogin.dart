@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_social/objects/item_user.dart';
 import 'package:flutter_social/screen/screen_utils.dart';
 import 'package:flutter_social/ui/creataccout/create_account.dart';
 import 'package:flutter_social/utils/colors.dart';
 import 'package:flutter_social/widgets/icon_avatar.dart';
 
 class BackgroundLogin extends StatelessWidget {
+  final Account account;
+
+  const BackgroundLogin({Key key, this.account}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -28,7 +32,7 @@ class BackgroundLogin extends StatelessWidget {
     return Container(
       height: myHeight(36),width: myWidth(295),alignment: Alignment.center,
       child: TextButton(onPressed: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context) => CreateAccount()));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => CreateAccount(account: account,)));
       },
           child: Text('Dont\’ have an account yet\?\nSIGN UP NOW', textAlign: TextAlign.center,)),
     );

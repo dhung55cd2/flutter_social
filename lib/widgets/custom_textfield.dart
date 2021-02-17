@@ -10,7 +10,6 @@ class WidgetEmail extends StatelessWidget {
   final String labelText;
    TextEditingController controllerEmail ;
 
-
    WidgetEmail({Key key, this.height, this.width, this.hintText, this.labelText, this.controllerEmail,}) : super(key: key);
   @override
   Widget build(BuildContext context) {

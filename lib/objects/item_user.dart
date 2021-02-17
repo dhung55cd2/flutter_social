@@ -37,9 +37,21 @@ class Users {
 }
 
 class Account{
-  final name;
-  final email;
-  final password;
+  String name;
+  String email;
+  String password;
 
-  Account(this.name, this.email, this.password);
+  Account();
+
+  Account.fromJson(Map<String, dynamic> json)
+      : name = json['name'],
+        email = json['email'],
+        password = json['password'];
+
+  Map<String, dynamic> toJson() => {
+    'name': name,
+    'email': email,
+    'password': password,
+  };
+
 }

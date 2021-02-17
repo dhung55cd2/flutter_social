@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_social/objects/item_user.dart';
 import 'file:///C:/Users/dvhnu/AndroidStudioProjects/flutter_social/lib/widgets/CustomButton.dart';
 import 'package:flutter_social/screen/screen_utils.dart';
 import 'package:flutter_social/ui/mypage/personal_page.dart';
@@ -9,8 +10,8 @@ import 'package:flutter_social/widgets/custom_textfield.dart';
 class TextFieldWidget extends StatefulWidget {
  final TextEditingController controllerEmail ;
  final TextEditingController controllerPassword ;
-
-   TextFieldWidget({Key key, this.controllerEmail, this.controllerPassword}) : super(key: key);
+ Account account;
+   TextFieldWidget({Key key, this.controllerEmail, this.controllerPassword, this.account, }) : super(key: key);
 
   @override
   _TextFieldWidgetState createState() => _TextFieldWidgetState();
@@ -19,7 +20,6 @@ class TextFieldWidget extends StatefulWidget {
 class _TextFieldWidgetState extends State<TextFieldWidget> {
  bool emailValid = false;
  bool passValid = false;
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -64,10 +64,11 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
     return MaterialButton(padding: EdgeInsets.symmetric(horizontal: myWidth(0),vertical: myHeight(0)),
       onPressed: (){
         setState(() {
-          if(widget.controllerEmail.text.length < 6 || !widget.controllerEmail.text.contains('@gmail.com') ){
+          if(widget.controllerEmail.text.length < 6 || !widget.controllerEmail.text.contains('@gmail.com') ||
+              widget.controllerEmail.text != widget.account.email ){
             emailValid = false;
           } else { emailValid = true;}
-          if(widget.controllerPassword.text.length <6) {
+          if(widget.controllerPassword.text.length <6 || widget.controllerPassword.text != widget.account.password) {
             passValid = false;
           } else {passValid = true;}
         });

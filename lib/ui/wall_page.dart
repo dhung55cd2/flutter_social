@@ -9,12 +9,12 @@ import 'package:flutter_social/ui/social_page.dart';
 import 'package:flutter_social/utils/colors.dart';
 import 'package:solid_bottom_sheet/solid_bottom_sheet.dart';
 
-class HomePage extends StatefulWidget {
+class WallPage extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _WallPageState createState() => _WallPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _WallPageState extends State<WallPage> {
   int _isSelected = 0;
   bool ontapBottomSheet = false;
   bool checkUserReply = false ;
@@ -384,8 +384,6 @@ Widget _buildUserReply(){
       ),
     );
   }
-
-
   Widget _widgetIconBottomNavHide(Size size, Widget widget, int index) {
     return InkWell(
       onTap: (){
@@ -420,7 +418,6 @@ Widget _buildUserReply(){
       ),
     );
   }
-
   Widget _buildAppBar(Size size) {
     return Container(
       width: size.width,height: myHeight(115),

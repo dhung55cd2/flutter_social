@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
+import 'package:flutter_social/objects/item_user.dart';
 import 'package:flutter_social/screen/screen_utils.dart';
 import 'package:flutter_social/ui/login/WidgetTextField.dart';
 import 'package:flutter_social/ui/login/backgroundlogin.dart';
 
 class LoginPage extends StatefulWidget {
+  final Account account;
+  const LoginPage({Key key, this.account}) : super(key: key);
   @override
   _LoginPageState createState() => _LoginPageState();
 }
@@ -12,7 +15,6 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   TextEditingController controllerEmail = TextEditingController();
   TextEditingController controllerPassword = TextEditingController();
-
   double _heightShowKeyboard =0;
   @override
   void dispose() {
@@ -29,18 +31,17 @@ class _LoginPageState extends State<LoginPage> {
           resizeToAvoidBottomInset: false,
           body:  Stack(
             children: [
-              BackgroundLogin(),
+              BackgroundLogin(account: widget.account,),
               Container(height: size.height,width: size.width,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    TextFieldWidget(controllerEmail: controllerEmail,controllerPassword: controllerPassword,),
+                    TextFieldWidget(controllerEmail: controllerEmail,controllerPassword: controllerPassword,
+                      account: widget.account),
                     SizedBox(height: (myHeight(200)+myHeight(_heightShowKeyboard)),)
                   ],
                 ),
               )
-
-
             ],
           )
 

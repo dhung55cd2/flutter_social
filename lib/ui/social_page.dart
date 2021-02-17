@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_social/objects/item_user.dart';
 import 'package:flutter_social/screen/screen_utils.dart';
 import 'file:///C:/Users/dvhnu/AndroidStudioProjects/flutter_social/lib/ui/login/login_page.dart';
 import 'package:flutter_social/utils/colors.dart';
 
-class SocialPage extends StatelessWidget {
+class SocialPage extends StatefulWidget {
+  final Account account;
+
+  const SocialPage({Key key, this.account}) : super(key: key);
+  @override
+  _SocialPageState createState() => _SocialPageState();
+}
+
+class _SocialPageState extends State<SocialPage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -29,12 +38,13 @@ class SocialPage extends StatelessWidget {
       ),
     );
   }
+
   Widget _buildLogin(BuildContext context){
     return Container(
         height: myHeight(36),width: myWidth(295),alignment: Alignment.center,
         child: InkWell(
           onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage(account: widget.account,)));
           },
           child: RichText(
             textAlign: TextAlign.center,
@@ -49,6 +59,7 @@ class SocialPage extends StatelessWidget {
 
     );
   }
+
   Widget _buildButtonConnectFacebook({String icon, String title, Color color}) {
     return MaterialButton(onPressed: (){
     },
@@ -62,6 +73,7 @@ class SocialPage extends StatelessWidget {
           ],)
           ),);
   }
+
   Widget _buildButtonConnecEmail({String icon, String title, Color color}) {
     return MaterialButton(onPressed: (){},
       child: Container(height: myHeight(55),width: myWidth(295),
@@ -76,6 +88,7 @@ class SocialPage extends StatelessWidget {
           ],)
       ),);
   }
+
   Widget _buildWidgetOval(){
     return Container(
       height: myHeight(80),width: myWidth(130),

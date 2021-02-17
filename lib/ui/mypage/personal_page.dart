@@ -4,6 +4,7 @@ import 'package:flutter_social/objects/item_images.dart';
 import 'package:flutter_social/screen/screen_utils.dart';
 import 'package:flutter_social/ui/create_post.dart';
 import 'package:flutter_social/ui/friend/FollowersPage.dart';
+import 'package:flutter_social/ui/wall_page.dart';
 import 'package:flutter_social/utils/colors.dart';
 import 'package:flutter_social/utils/gridview_images.dart';
 import 'package:flutter_social/widgets/customInfoStatistic.dart';
@@ -58,7 +59,7 @@ class _PersonalPageState extends State<PersonalPage> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           CustomInfoStatistic(number: 250,title: "Posts",onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context) => CreatPost()));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => WallPage()));
           },),
           CustomInfoStatistic(number: 353,title: "Followers",onPressed: (){
             Navigator.push(context, MaterialPageRoute(builder: (context) => FollowersPage()));
