@@ -46,8 +46,5 @@ Gọi điện
   <img src="https://user-images.githubusercontent.com/74011122/108335637-c1fe3f00-7205-11eb-883c-a0ecc8654c49.jpg" width="200" >
 </p>
 
-
-A few resources to get you started if this is your first Flutter project:
-
 - [Video mô tả sản phẩm](https://youtu.be/6hl4OEcAvIk)
 
